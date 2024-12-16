@@ -1,0 +1,250 @@
+
+
+{% extends "./base.html" %}
+
+{% load static %}
+{% load humanize %}
+
+
+{% block body %}
+    <main class="pb-[12%] h-fit bg-[#ffffffa7] dark:text-white text-black dark:bg-[#000000d2] w-full  min-h-full">
+        <span class="  py-4  pl-4 w-full">
+
+            <h1 class="text-[150%] dark:text-white text-black "> <small>Welcome!!</small> , {{request.user.username}}</h1> 
+            <h5 class="dark:text-white text-lg  text-gray-800">Start Your financial Journey with Nexsu  </h5></span>
+        <div class="flex flex-row align-middle gap-2 justify-end items-end space-y-2  flex-wrap  w-full max-sm:w-full p-3  max-sm:space-y-3    max-sm:flex-col ">
+            <big class="  rounded bg-blend-lighten h-[180px] max-md:w-screen w-[320px] flex-grow  p-5 relative dark:text-white bg-blue-100 dark:text-white text-black  dark:bg-[#000000cc] shadow-md  shadow-[#4b474780] max-sm:w-[100%] max-sm:self-center sm:w-[400px] relative p-1 flex  items-center">
+                <img src="{% static 'pro.png'%}" class="w-1/3" alt="">
+                <span class="ml-[9%] z-30">
+                    <h1 class="text-[24px] max-md:text-[90%] max-md:mt-7">Account Balance</h1>
+                    <b class="text-[30px]"> $ {{user.balance|intcomma}}</b>
+                    <p class="qp text-sm z-50"> <img src="" alt="" id="flag" height="30px" class="h-6 w-10 flex " width="30px"></p>
+                    
+                <script>
+                    function apfetch() {
+                        
+                        fetch('https://ipinfo.io/json')
+                    .then(res => res.json())
+                    .then((data) => {
+                
+                        document.querySelector('#flag').src = `https://flagsapi.com/${data.country}/flat/64.png`
+                        document.querySelector('.qp').innerHTML += data.country+":    " + "IP--"+data.ip 
+                    }
+                    )
+                    }
+                    apfetch()
+                   </script>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-black bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                    Withdrawable
+                </small>
+                <style>
+                    .iss{
+                        clip-path: circle(50% at 17% 28%);
+                    }
+                </style>
+                <b style="clip-path: circle(31.2% at 84% 78%);" class="chan:hover:iss transition-all bg-ci -z- absolute w-full h-full top-0 left-0 bg-gradient-to-b dark:bg-[black] text-white -z-20 from-slate-400 bg-gradient-to-b bg-blue-800 text-white from-slate-400 "></b>
+            </big>
+            <big class="bg-blend-lighten h-[180px] flex-grow text-black p-5 relative dark:text-white dark:bg-gray-900 bg-blue-50  shadow-md  shadow-[#617aba80] max-sm:w-[97%] max-sm:self-center sm:w-[400px] relative p-1 flex  items-center">
+                <img src="{% static 'ss.png'%}" class="w-1/3 h-full" alt="">
+                {% if x.off == False %}
+                <span class="ml-[9%] z-20">
+                    <h1 class="text-[24px] text-black text-black dark:text-white max-md:text-[90%] max-md:mt-7">NET INCOME</h1>
+                    <span calss=' w-full flex  flex-col'>
+                        <b class="text-[14px]">INVESTED: ${{x.amounttobeadd}}</b>
+                        ~
+                        <b class="text-[14px]">NET-INCOME: ${{net}}</b>
+
+                    </span>
+                    <p>Remaining time :{{x.date.time}}</p>
+                </span>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-red-500 bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                    {{x.useronplan.name}} <i class="bi bi-exclamation-circle text-red-600"></i>
+                </small>
+                {% else %}
+                <span class="ml-[9%] z-20">
+                    <h1 class="text-[24px] text-black text-black dark:text-white max-md:text-[120%] max-md:mt-[8%] max-md:text-[90%] max-md:mt-7">NET INCOME</h1>
+                    <span calss=' w-full flex  flex-col'>
+                        <b class="text-[14px]">INVESTED: 0 </b>
+                        ~
+                        <b class="text-[14px]">NET-INCOME: 0    </b>
+
+                    </span>
+                    <p>Remaining time :Not On Plan</p>
+                </span>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-red-500 bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                    Not on Plan <i class="bi bi-exclamation-circle text-red-600"></i>
+                </small>
+                {% endif %}
+                <b style="clip-path: polygon(100% 0, 80% 0%, 50% 100%, 100% 100%);" class="-z- absolute w-full h-full top-0 left-0 bg-gradient-to-b dark:bg-[#202d607e] text-white from-slate-400 bg-gradient-to-b  text-white from-slate-400 "></b>
+            </big>
+            <big class="bg-blend-lighten h-[180px] max-sm:h-fit  bg-[url('{% static 'dd.png'%}')] flex-grow p-5 relative dark:text-white dark: bg-gradient-to-b bg-blue-100  shadow-md  shadow-[#617aba80] max-sm:w-[97%] max-sm:self-center sm:w-[400px] relative p-1 flex  items-center">
+                <img src="{% static 'c.png'%}" class="w-1/3 z-40 h-full" alt="">
+
+                <span class="ml-[9%] z-20 text-black h-full   max-sm:flex max-sm:flex-col " >
+                    <h1 class="text-[24px] max-md:text-[90%] max-md:mt-7">REFERRAL</h1>
+                        <b class="text-[14px]" style="mix-blend-mode: difference;">AMOUNT EARNED: ${{user.referamount}}</b>
+ <br>
+                    <small class="font-light italic bg-slate-900  rounded text-white border-red-400 p-2 max-sm:text-[89%]"> REFERRAL CODE:{{user.refercode}}</small>          
+                              <p>5% of the User deposit <i class="bi bi-exclamation-circle text-red"></i> </p>                    
+                </span>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-red-500 bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                    USER(s) {{user.howmanreferral}} <i class="bi bi-people text-red-600"></i>
+                </small>
+                <b style="clip-path: polygon(25% 0%, 100% 0%, 50% 100%, 0% 100%); " class="-z- absolute w-full h-full top-0 left-0 bg-gradient-to-b dark:bg-[#202d607e] text-white from-slate-400 bg-gradient-to-b  text-white from-slate-400 "></b>
+            </big>
+            <big class="bg-blend-lighten sm:max-w-[320px] h-[180px] flex-grow text-black p-5 relative dark:text-white dark:bg-gray-900 bg-blue-50  shadow-md  shadow-[#617aba80] max-sm:w-[97%] max-sm:self-center sm:w-[400px] relative p-1 flex  items-center">
+                <img src="{% static 'xx.png'%}" class="w-1/3 h-full" alt="">
+
+                <span class="ml-[9%] z-20">
+                    <h1 class="text-[24px] text-black dark:text-white max-md:text-[90%] max-md:mt-7">Total Deposit</h1>
+                    <span calss=' w-full flex  flex-col'>
+                        <b class="text-[14px]">AMOUNT: ${{user.depositincome}}</b>
+                    </span>
+                </span>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-red-500 bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                     <i class="bi bi-pie-chart text-red-600"></i>
+                </small>
+                <b style="clip-path: polygon(100% 0, 80% 0%, 50% 100%, 100% 100%);" class="-z- absolute w-full h-full top-0 left-0 bg-gradient-to-b dark:bg-[#202d607e] text-white from-slate-400 bg-gradient-to-b  text-white from-slate-400 "></b>
+            </big>
+            
+            <big class="bg-blend-lighten md:max-w-[320px] w-screen 
+            h-[180px] flex-grow text-black p-5 relative dark:text-white dark:bg-gray-900 bg-blue-50  shadow-md  shadow-[#617aba80] max-sm:w-[97%] max-sm:self-center sm:w-[400px] relative p-1 flex  items-center">
+                <img src="{% static 'gg.png'%}" class="w-1/3 h-full" alt="">
+
+                <span class="ml-[9%] z-20">
+                    <h1 class="text-[24px] text-black dark:text-white max-md:text-[90%] max-md:mt-7">Total withdrawal</h1>
+                    <span calss=' w-full flex  flex-col'>
+                        <b class="text-[14px]">INCOME: ${{user.withdrawincome}}</b>
+                    </span>
+                </span>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-red-500 bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                     <i class="bi bi-wallet text-red-600"></i>
+                </small>
+                <b style="clip-path: polygon(100% 0, 80% 0%, 50% 100%, 100% 100%);" class="-z- absolute w-full h-full top-0 left-0 bg-gradient-to-b dark:bg-[#202d607e] text-white from-slate-400 bg-gradient-to-b  text-white from-slate-400 "></b>
+            </big>
+            <big class="bg-blend-lighten sm:max-w-[320px] h-[180px] flex-grow text-black p-5 relative dark:text-white dark:bg-gray-900 bg-blue-50  shadow-md  shadow-[#617aba80] max-sm:w-[97%] max-sm:self-center sm:w-[400px] relative p-1 flex  items-center">
+                <img src="{% static 'ssddd.png'%}" class="w-1/3 h-full" alt="">
+
+                <span class="ml-[9%] z-20">
+                    <h1 class="text-[24px] text-black dark:text-white">NET-INCOME</h1>
+                    <span calss=' w-full flex  flex-col'>
+                        <b class="text-[14px]"> TOTAL  : ${{user.netincome}}</b>
+                    </span>
+                </span>
+                <small class="z-20 absolute top-0 right-0 dark:bg-white dark:text-red-500 bg-blue-800 text-white italic  font-bold text-xs p-2 capitalize rounded-bl-md">
+                     <i class="bi bi-bar-chart text-red-600"></i>
+                </small>
+                <b style="clip-path: polygon(100% 0, 80% 0%, 50% 100%, 100% 100%);" class="-z- absolute w-full h-full top-0 left-0 bg-gradient-to-b dark:bg-[#202d607e] text-white from-slate-400 bg-gradient-to-b  text-white from-slate-400 "></b>
+            </big>
+
+         </div>
+
+         <section class="bg-transparent dark:transparent p-3 sm:p-5 antialiased">
+             <span class="font-sans text-left text-[33px]">
+                 <h1>Transactions</h1>
+             </span>
+             {% if current %}
+             
+            <div class="w-full min-[400px]: max-w-screen-xl px-4 lg:px-12">
+                <!-- Start coding here -->
+                <div class="bg-transparent dark:transparent relative shadow-md sm:rounded-lg overflow-hidden">
+                    
+                    <div class="overflow-x-auto shadow-sm shadow-gray-400 bg-white dark:bg-black  dark:text-white text-black ">
+                        <table class="w-full shadow-sm shadow-gray-400 text-sm text-left bg-white dark:bg-black  dark:text-white text-black text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs shadow-sm shadow-gray-400 text-black text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-4 py-4">id:</th>
+                                    <th scope="col" class="px-4 py-3">type:</th>
+                                    <th scope="col" class="px-4 py-3">Status:</th>
+                                    <th scope="col" class="px-4 py-3">Date/Time:</th>
+                                    <th scope="col" class="px-4 py-3">Amount($):</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if vl %}
+                                <tr class="border-b dark:border-gray-700">
+                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{vl.uuid}}</th>
+                                    
+                                    <td class="px-4 py-3 max-w-fit  transparent capitalize"> {{vl.useronplan.name}}</td>
+                                   
+                                    {% if vl.off == True %}
+                                    
+                                    <td class="px-4 py-3   transparent">Approved </td>
+                                   
+                                    {% else %}
+                                    <td class="px-4 py-3  transparent">pending </td>
+                                    {% endif %}
+                                   
+                                    <td class="px-4 py-3">{{vl.date}} </td>
+                                    <td class="px-4 py-3">{{vl.amounttobeadd}} </td>
+                                </tr> 
+                                {% endif %}
+
+
+                                {% if wl %}
+                                
+                                <tr class="border-b dark:border-gray-700">
+                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{wl.uuid}}</th>
+                                    
+                                   
+                                    <td class="px-4 py-3">{{wl.name}} </td>
+                                   
+                                   
+                                    
+                                    {% if wl.approved == True %}
+                                    <td class="px-4 py-3   transparent">Approved </td>
+                                   
+                                    {% else %}
+                                    <td class="px-4 py-3  transparent">pending </td>
+                                    {% endif %}
+                                    <td class="px-4 py-3  transparent">{{wl.date}} </td>
+                                    <td class="px-4 py-3  transparent">{{wl.amount}} </td>
+                                </tr> 
+                               
+                                {% endif %}
+                                {% if dl %}
+                                <tr class="border-b dark:border-gray-700">
+                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{dl.uuid}}</th>
+                                    
+                                    <td class="px-4 py-3 max-w-fit  transparent capitalize"> {{dl.coin.name}}</td>
+                                   
+                                    
+                                    {% if dl.approved == True %}
+                                    <td class="px-4 py-3   transparent">Approved </td>
+                                   
+                                    {% else %}
+                                    <td class="px-4 py-3  transparent">pending </td>
+                                    {% endif %}
+                                    <td class="px-4 py-3">{{dl.date}} </td>
+                                    <td class="px-4 py-3">{{dl.amount}} </td>
+                                </tr> 
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+                               
+                                
+                                 {%  else %}
+                                <div class="border-b w-[50%] max-md:w-full dark:border-gray-700 relative ">
+                                    <img src="{% static 'em.png' %}" class="w-full h-full " alt="">
+                                    <h2 class="absolute top-0 left-0 w-full h-full items-center justify-center text-center flex ">
+                                    <b class="bg-[#80808092] p-12 ">
+                                    EMPTY
+                                    </b>
+                                    </h2>
+                                </div>
+                                {%  endif %}
+        </section>
+        <script src="http://price-static.crypto.com/latest/public/static/widget/index.js"></script>
+        <div
+          id="crypto-widget-CoinMarquee"
+          data-transparent="true"
+          
+          data-design="modern"
+          data-coin-ids="1,136,20,2180,29,382,440,166"></div>
+    </main>
+{% endblock body %}

@@ -1,0 +1,68 @@
+{% load static %}
+<div id="perloaderx" class="w-full fixed z-50 top-0 left-0 h-full z-50  dark:bg-black  hidden dark:flex items-center justify-center  ">
+    
+    <img class="w-[50%]  h-[50%] object-cover" src="{% static 'light.gif'%}" alt="">
+</div>
+<div id="perloaderx2" class="w-full fixed z-50 top-0 left-0 h-full dark:hidden flex bg-black    flex items-center justify-center  ">
+    
+    <img class="w-[50%]  h-[50%] object-cover" src="{% static 'light.gif'%}" alt="">
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded',()=> {
+        
+                setTimeout(() => {
+            document.querySelector('#perloaderx').classList.add('dark:hidden')
+          
+         document.querySelector('#perloaderx2').classList.add('hidden')
+            
+        }, 100)
+    })
+</script>
+
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {}
+_smartsupp.offsetX = 50; // move along the X axis by 100 pixels
+_smartsupp.offsetY = 120
+_smartsupp.key = 'd29b12f9b0397c2ae3c7aa9837ab709bb10d6244';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='http://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+
+
+
+<script>
+var cid = 9454; 
+(function() { 
+	window.aonewObj = 'aonew'; 
+	window.aonew = window.aonew || function(){ 
+		(window.aonew.q = window.ga.q || []).push(arguments) 
+	}, 
+	window.aonew.l = 1 * new Date(); 
+	var a = document.createElement('script'); 
+	var m = document.getElementsByTagName('script')[0]; 
+	a.async = 1; 
+	a.src = "http://api1.websuccess-data.com/tracker.js"; 
+	m.parentNode.insertBefore(a,m) 
+})()
+</script>
+<script>
+    function getchecked(pk) {
+        hi =location.host
+        fetch(`http://${hi}/api/checkverified/${String(pk)}/`)
+        .then(res=> res.json())
+    .then((e)=> {
+        if (e.user){
+
+            location.href = `http://${hi}/otp/${String(pk)}/`
+        }
+
+       
+    })
+    }
+</script>

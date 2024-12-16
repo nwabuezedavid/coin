@@ -1,0 +1,66 @@
+
+
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+
+{% block body %}
+  <script src="{% static 'deposite.js' %}" defer></script>
+   
+  
+<main class="pb-[12%] h-fit bg-[#ffffffa7] dark:text-white text-black dark:bg-[#000000d2] w-full  min-h-full">
+          
+                <!-- Modal content -->
+                <section class="w-full max-sm:bg-[#00000045] dark:bg-transparent flex  flex-col items-center justify-center   ">
+                    <!-- Modal body -->
+                    <h1 class="flex dark:text-white text-black mt-11 text-3xl font-bold ">FUND ACCOUNT </h1>
+                    <for  class="mian-form mt-[2% ] max-sm:w-full  w-[50%] p-6 rounded text-black dark:text-white bg-white rounded-lg shadow dark:bg-gray-700 ">
+                        <div class="i0EfZzmTLElZVOble53D text-white  Ced8tRkG1VjcbmNVdBtj _9OKVeTXzfSwD_NYO6_G hAFtnIdYDiO6M_67F11P">
+                            <div class="w-full">
+                                <label for="name" class="   dark:text-white text-black ">AMOUNT</label>
+                                <input type="number" onchange="document.querySelector('#absjdj').innerHTML =`Send $${this.value} worth of crypto select above to this Wallet  `" min="50" name="name" id="amount" class="dark:bg-gray-900 border-b-2 dark:focus:ring-primary-500 dark:focus:border-primary-500 text-black dark:text-white w-full  bg-white dark:bg-black" placeholder="Amount" required="">
+                            </div>
+                            <div class="flex flex-col h-full">
+                                <label for="category" class="   ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black">Choose Wallet to Transfer To: <b class="text-red-400">(required) <i class="bi bi-exclamation-circle"></i></b> </label>
+                                <ul class=" mb-4 flex h-fit  w-full ">
+                                    {% if coin %}
+                                    {% for i in coin %}
+                                        <label onchange="document.querySelector('#wallelogo').src = '{{i.logo}}', document.querySelector('#wllert').value = '{{i.address}}' "  for="{{i.name}}" class=" checked:text-black items-center text-center justify-center  flex  w-[60px]  relative text-gray-900 bg-blue-600 border p-3 border-gray-200 rounded-lg cursor-pointer uppercase text-white dark:hover:text-gray-300 ml-2 dark:border-gray-500 dark:checked:text-blue-500 peer-checked:border-blue-600 checked:text-blue-600 focus:bg-red-700 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">                           
+                                            <input type="radio" id="{{i.name}}"  name="jobccc" value="{{i.uuid}}"  class="hidden peer" required>
+                                          <p class=" ">{{i.name}}</p>
+                                        </label>
+        
+                                    {% endfor %}
+                                    {% endif %}
+                                    
+                                </ul>
+                                <div class="w-full flex flex-col  p-10">
+                                    <small class="uppercase  dark:text-white text-black" id="absjdj"> </small>
+                                    <big class="w-full h-fit bg-[#0502024b] text-center items-center justify-center p-5 ">
+                                        <img src="" id="wallelogo"  class=" max-sm:w-full sm:w-[60%] h-[190px] p-[auto] m-auto  " alt="">
+                                    </big>
+                                    <input type="text" readonly  id="wllert" value="" class="dark:text-black   text-black">
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="w-full">
+                                <label for="name" class="    ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 text-black dark:text-white">Image Proof :</label>
+                                <input type="file" min="4000"  id="file" class=" text-white text-black dark:text-white jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:white w-full bg-white dark:bg-transparent  "  required="">
+                            </div>          
+                        
+                        <div class="neyUwteEn7DOg9pBSJJE  FLfl_xS1XCloWU2wRi87 U4m6yFbNbl_ea9gVo2Uw _rT9gacXyvSO1fCjLFak _uGk0TKCucyvLBoD8KyB">
+                         
+                            <button  onclick="deposite('submits')"  id="submits" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center text-center justify-center"><b class="" id="textbtn">submit</b> <p id="pinbtn" class="bg-white w-6 h-6 rounded-full animate-ping hidden"></p>  </button>
+                        
+                            
+                        </div>
+                    </form>
+              </section>
+
+                   
+      </main>
+      {% endblock body %}
+   

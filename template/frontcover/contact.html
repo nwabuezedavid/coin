@@ -1,0 +1,82 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+
+{% block body %}
+<section id="into" style=" " class="bg-white dark:bg-gray-900 ">
+    <div  class=" mt-[0%] max-sm:pt-[23%] py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+        <a href="#" class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
+            <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3"> {{site.name}} Customer Support</span> <span class="text-sm font-medium">For general inquiries, feedback, or assistance, feel free to reach out to our team</span> 
+            <svg class="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+        </a>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"> Feedback and Suggestions </h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Our dedicated customer support team is ready to assist you with any questions or concerns you may have. Whether it's about our services, your account, or technical support, we're here to ensure you have a seamless experience.
+        </p>
+       
+        <ul>
+            
+        </ul>
+    </div>
+    <!-- <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0">
+        
+    </div> -->
+</section>
+   
+
+
+ 
+<section class=" body-font relative dark:text-white text-black">
+  <div class="container px-5 py-24 mx-auto flex w-full items-start justify-start flex flex-col h-full">
+    <main class="flex w-full flex-wrap">
+
+    
+    <section  class="dark:text-white text-black flex sm:w-1/2  w-full  flex-wrap  flex-col p-5   justify-evenly items-center  dark:text-white text-black dark:bg-[url(assets/bg.jpg)] bg-cover  bg-[url(assets/fd.webp)] bg-no-repeat" style="">
+        <div class="sm:w-[500px] w-full h-fit p-3 mt-6 dark:text-white bg-blue-700 rounded-md  ">
+         <span><h1 class="text-gray-100 ">Unlock the Power of BTC:</h1></span>
+         <p class="text-gray-300 ">Embark on a path of financial growth with our innovative BTC investment plans. Whether you're a seasoned investor or just starting, our diverse range of plans caters to all, ensuring optimized returns and flexibility.</p>
+        </div>
+        <div class="sm:w-[500px] w-full h-fit p-3 mt-6 dark:text-white text-black dark:text-white bg-blue-700 rounded-md  ">
+         <span><h1 class="text-gray-100 dark:text-white text-black">Security at Its Core:</h1></span>
+         <p class="text-gray-300 dark:text-white text-black">Trust is paramount, and we prioritize the security of your investments. Benefit from our cutting-edge security measures, providing you with a safe environment for BTC transactions. Your peace of mind is our commitment.</p>
+        </div>
+     </section>
+    <div class="dark:text-white text-black w-1/2 max-sm:w-full max-sm:w-full bg-transparent flex flex-col md:ml-auto  md:py-8 mt-8 md:mt-0">
+      <h2 class="text-gray-900 text-lg mb-1 font-medium title-font text-[90px] text-black dark:text-white">Contact form /Feedback</h2>
+      <p class="leading-relaxed mb-5 dark:text-gray-100 text-black">At {{site.name}} Crypto Investments, transparency is the foundation of trust. Explore our straightforward fee structure, ensuring you are fully aware of the costs associated with your BTC investments. No hidden fees, just a clear path to financial growth.</p>
+      <div class="relative mb-4">
+        <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+        <input type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <div class="relative mb-4">
+        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      </div>
+      <div class="relative mb-4">
+        <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+        <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+      </div>
+      <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+    </div></main>
+    <div class=" w-full hidden bg-[#2f55ff00] min-h-[400px] rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        <iframe class="h-full w-full min-h-[450px]  inset-0"  title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" width="100%" height="100%" hidden frameborder="0"></iframe>
+       
+  </div>
+</section>
+ 
+  
+
+
+
+
+<!-- Slider -->
+
+<!-- End Slider -->
+
+
+<!-- footer -->
+
+{% endblock body %}

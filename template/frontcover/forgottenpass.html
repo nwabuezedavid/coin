@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgotten Password </title>
+    <script src="{% static 'static/tailwin.js'%}"></script>
+    <script src="{% static 'static/tailwin plugin.js'%}"></script>
+    <script src="{% static 'static/main.js'%}"></script>
+    
+
+    <script src="{% static 'static/app.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/tailwun.css'%}">
+</head>
+<body>
+    <input type="hidden" class="hidden" value="{{csrf_token}}" name="" id="csrf">
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                <img class="w-8 h-8 mr-2" src="{{site.logo}}" alt="logo">
+                {{site.name}}   
+            </a>
+            <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+                <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                  <p class="forttogen ">Forgotten Password </p>
+                  <p class="change hidden">
+
+                    
+                  </p>
+                </h1>
+                <p id="email" class="font-light text-gray-500 dark:text-gray-400">! Just type in your email and we will send you a code to reset your password!</p>
+                <p id="mainiin" class="font-light text-gray-500 dark:text-gray-400 hidden ">An verification Code was sent to your email!</p>
+                <div id="otp" class="mt-4 space-y-4 lg:mt-5   md:space-y-5" action="">
+                    <div>
+                        <label for="emailvc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+                        <input type="text" name="email" id="emailvc" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                    </div>
+                    
+                    <button onclick="changeeffect('otp')"  class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Request Code</button>
+                </div>
+                <main id="chac"  class="mt-4  hidden space-y-4 lg:mt-5 md:space-y-5" >
+                    <div>
+                        <label for="code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Code</label>
+                        <input type="text" name="email" id="codes" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Code" required="">
+                    </div>
+
+
+
+
+                    <div>
+                        <label for="pass1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" name="email" id="pass1" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password" required="">
+                    </div>
+
+                    
+                    <div>
+                        <label for="pass2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">confirm Password</label>
+                        <input type="password" name="email" minlength="9" id="pass2" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="comfirm Password" required="">
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                          <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                        </div>
+                        <div class="ml-3 text-sm">
+                          <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="https://flowbite.com/blocks/marketing/account-recovery/#">Terms and Conditions</a></label>
+                        </div>
+                    </div>
+                    <button type="submit" onclick="changeeffect('change')" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Reset password</button>
+                    <button  onclick="changeeffect()" class="w-full bg-blue-700 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Back</button>
+                </main>
+                <script>
+function changeeffect(data) {
+    const otp = document.querySelector('#otp')
+    const forttogen = document.querySelector('.forttogen')
+    const change = document.querySelector('.change')
+    const chac = document.querySelector('#chac')
+    const email = document.querySelector('#email')
+    const mainiin = document.querySelector('#mainiin')
+    otp.classList.toggle('hidden')
+    chac.classList.toggle('hidden')
+    forttogen.classList.toggle('hidden')
+    change.classList.toggle('hidden')
+    email.classList.toggle('hidden')
+    mainiin.classList.toggle('hidden')
+   console.log(csrf);
+   console.log(csrf);
+
+if (data == "otp"){
+    const emailvc = document.querySelector('#emailvc').value
+
+
+    const csrf  = document.querySelector('#csrf')
+
+   
+if ( emailvc != "" ) {
+   let ms = new FormData()
+   console.log(emailvc);
+  ms.append('email', emailvc)
+  
+
+  
+let hi = location.host
+fetch(`https://${hi}/api/restp/`, {
+    method:'PUT',
+    headers:{'X-CSRFToken':csrf.value},body: ms   })
+
+.then(res=> res.json())
+.then((e)=> {
+    if (e.data) { 
+      
+    }else{
+        alert("User Does't Exist")
+    }
+})
+.catch(e => alert("User Does't Exist "))
+}
+
+}
+if (data == "change"){
+    const code = document.querySelector('#codes').value
+    const pass1 = document.querySelector('#pass1').value
+    const pass2 = document.querySelector('#pass2').value
+
+
+    const csrf  = document.querySelector('#csrf')
+
+   if (pass1 != pass2) {
+    alert('password mismatch!!')
+   }
+if (pass1 == pass2 & pass1!="" & code!="" ) {
+   let ms = new FormData()
+   console.log(emailvc);
+  ms.append('code', code)
+  ms.append('password', pass1)
+  
+
+  
+let hi = location.host 
+fetch(`https://${hi}/api/restp/`, {
+    method:'POST',
+    headers:{'X-CSRFToken':csrf.value},body: ms   })
+
+.then(res=> res.json())
+.then((e)=> {
+    if (e.data) {
+alert('Successful Reset ')
+code = ""
+pass2 = ""
+pass1 = ""
+   
+    }else{
+        alert("User Does't Exist")
+    }
+})
+.catch(e => alert("User Does't Exist "))
+}
+
+}
+
+
+
+
+}
+                </script>
+            </div>
+        </div>
+      </section>
+</body>
+</html>

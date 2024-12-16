@@ -1,0 +1,106 @@
+
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+
+{% block body %}
+  <script src="{% static 'deposite.js' %}" defer></script>
+   
+  
+<main class="pb-[12%]  h-fit bg-[#ffffffa7] dark:text-white text-black dark:bg-[#000000d2] w-full  min-h-full overflow-auto flex flex-col pb-[9%]">
+          
+                <!-- Modal content -->
+                <section class="w-full max-sm:bg-[#00000045] dark:bg-transparent flex  flex-col items-center justify-center   pb-[9%]">
+                    <!-- Modal body -->
+                    <h1 class="flex dark:text-white text-black mt-1 text-3xl font-bold ">Send Message </h1>
+                    <form  onsubmit="event.preventDefault();sendmessage()"  class="mian-form mt-[2% ] max-sm:w-full  w-[50%] p-6 rounded text-black dark:text-white bg-white rounded-lg shadow dark:bg-gray-700 ">
+                        <div class="i0EfZzmTLElZVOble53D text-white  Ced8tRkG1VjcbmNVdBtj _9OKVeTXzfSwD_NYO6_G hAFtnIdYDiO6M_67F11P">
+                            
+                            <div class="flex flex-col h-full">
+                                <label for="category" class="   ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black"><i>User(send to)</i>: <b class="text-red-400">(required) <i class="bi bi-exclamation-circle"></i></b> </label>
+                                <ul class=" mb-4 flex h-fit  w-full ">
+                                    <label  class="   flex  r:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">                           
+                                    
+                                    </label>
+                                          <select name="" id="user" class="w-full p-3 text-gray-950">
+                                              <option value="">__select__User__</option>
+                                        {% if coin %}
+                                        {% for i in coin %}
+                                            <option value="{{i.uuid}}">{{i.user.username}} -- {{i.balance}}</option>
+                                            {% endfor %}
+                                            {% endif %}
+
+                                          </select>
+        
+                                        
+                                </ul>
+                               
+                            </div>
+                            
+                           <div class="w-full flex flex-col">
+                            <label for="">MESSAGE BOX</label>
+                            <textarea name="" class="text-black" id="message" cols="30" rows="10"></textarea>
+                           </div>
+                                   <script>
+                                    pro = location.protocol
+                                    function sendmessage() {
+
+                                        
+
+    const csrf  = document.querySelector('#csrf')
+    const message  = document.querySelector('#message')
+    const user  = document.querySelector('#user').value
+
+   
+if ( message.value != "" & user !='' ) {
+   let ms = new FormData()
+  ms.append('message', message.value)
+
+  
+let hi = location.host
+fetch(`${pro}//${hi}/api/sendmail/${String(user)}/`, {
+    method:'POST',
+    headers:{'X-CSRFToken':csrf.value},body: ms   })
+
+.then(res=> res.json())
+.then((e)=> {
+    if (e.error){
+        errormessage.innerHTML = "An error Occurred reload and try again"
+        if(document.querySelector('#errormessagecon')){
+            document.querySelector('#errormessagecon').classList.remove('hidden')
+        }
+    }else if (e.data){
+        location.reload()
+      
+        errormessage.innerHTML = "Created successfully"
+        if(document.querySelector('#errormessagecon')){
+            document.querySelector('#errormessagecon').classList.remove('hidden')
+        }
+    }
+;})
+.catch(err => {
+    errormessage.innerHTML = "An error Occurred reload and try again"
+        if(document.querySelector('#errormessagecon')){
+            document.querySelector('#errormessagecon').classList.remove('hidden')
+        }
+})
+                                        
+                                    }
+                                    }
+                                   </script>
+                        
+                        <div class="neyUwteEn7DOg9pBSJJE  FLfl_xS1XCloWU2wRi87 U4m6yFbNbl_ea9gVo2Uw _rT9gacXyvSO1fCjLFak _uGk0TKCucyvLBoD8KyB">
+                         
+                            <button   id="submits" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center text-center justify-center"><b class="" id="textbtn">submit</b> <p id="pinbtn" class="bg-white w-6 h-6 rounded-full animate-ping hidden"></p>  </button>
+                        
+                            
+                        </div>
+                    </form>
+              </section>
+
+                   
+      </main>
+      {% endblock body %}
+   

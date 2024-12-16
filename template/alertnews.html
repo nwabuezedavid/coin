@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verified</title>
+    <link rel="stylesheet" href="{% static 'asset/js/dashlite.css' %}" />
+    <link id="skin-default" rel="stylesheet" href="{% static 'asset/js/theme.css' %}" />
+    <script
+      type="text/javascript"
+      async=""
+      src="{% static 'asset/js/analytics.js.download' %}"
+    ></script>
+</head>
+<body>
+    <link rel="stylesheet" href="{% static 'asset/js/dashlite.css' %}" />
+    <link id="skin-default" rel="stylesheet" href="{% static 'asset/js/theme.css' %}" />
+    <script
+      type="text/javascript"
+      async=""
+      src="{% static 'asset/js/analytics.js.download' %}"
+    ></script>
+    <script>
+        function loadCSSFromLink(link) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  var style = document.createElement('style');
+                  style.innerHTML = xhr.responseText;
+                  document.head.appendChild(style);
+              } else {
+                  console.error('Failed to load CSS from ' + link);
+              }
+          }
+      };
+      xhr.open('GET', link, true);
+      xhr.send();
+  }
+  
+  // Example usage:
+  var cssLink = "{% static 'asset/js/dashlite.css' %}";
+  loadCSSFromLink(cssLink);
+  
+      </script>
+    <div class="nk-block">
+        <div class="card card-bordered">
+          <div class="card-inner">
+            <h4 class="title text-soft mb-4 overline-title">
+              Notification - verified 
+            </h4>
+            <table class="email-wraper">
+              <tbody>
+                <tr>
+                  <td class="py-5">
+                    <table class="email-header">
+                      <tbody>
+                        <tr>
+                          <td class="text-center pb-4">
+                            <a
+                              href=""
+                              ><img
+                                class="email-logo"
+                                src="{{site.logo}}"
+                                alt="logo"
+                            /></a>
+                            <p class="email-title">
+                              {{site.name}}
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="email-body">
+                      <tbody>
+                        <tr>
+                          <td class="p-3 p-sm-5">
+                            <p><strong>{{user.name}}</strong></p>
+                            <p>
+                              We are pleased to have you as a member
+                              of {{site.name}} Family.
+                            </p>
+                            <p>
+                              Your account is now verified and you
+                              can Invest . Also
+                              you can submit your documents for the
+                              KYC from my Account page.
+                            </p>
+                            <p>
+                              Hope you'll enjoy the experience,
+                              we're here if you have any questions,
+                              drop us a line at
+                              <a href="mailto:info@{sitename}"
+                                >info@{{site.name}}</a
+                              >
+                              anytime.
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="email-footer">
+                      <tbody>
+                        <tr>
+                          <td class="text-center pt-4">
+                            <p class="email-copyright-text">
+                              Copyright © 2020 {{site.name}}. All rights
+                              reserved. 
+                            </p>
+                           
+                            <p class="fs-12px pt-4">
+                              This email was sent to you as a
+                              registered member of
+                             
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

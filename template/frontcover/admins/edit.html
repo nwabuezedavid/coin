@@ -1,0 +1,132 @@
+
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+
+{% block body %}
+   
+  <script defer src="{% static 'set.js' %}"></script>
+
+    <main class="pb-[12%] h-fit bg-[#000000a7] overflow-auto dark:text-white text-black dark:bg-[#000000d2] w-full  min-h-full">
+          
+                <!-- Start coding here -->
+                
+                <div id="" tabindex="-1" class=" justify-center items-center kqgYncRJQ7spwKfig6It overflow-auto" >
+                    <div class="QYPW4nl6nHaIbrtaXf4h iHyrYta0Jcy0_7nMWLK7 jCISvWkW5oStPH6Wrb_H _Y8m3EApcgnyDOY6pRW3 j34KztD3SBxL_tQWzosr _ALrM3QjY4w2nD9x3ELz">
+                        <!-- Modal content -->
+                        <div  class="LqcHsRZZ4ge lhxYQ_2y3sYNN3W1V_3q _cpMMPjFQqjJu4i0Puod dark:bg-[#00000072] shadow-md shadow-gray-400 p-6 backdrop-blur text-gray-800 bg-[#ffffffd7] dark:text-white">
+ 
+                                <h2 id="accordion-collapse-heading-1 my-5">
+                                        <span class="text-[34px] ">Site Information</span>
+                                </h2>
+                                <div id="accordion-collapse-body-1" class="" aria-labelledby="accordion-collapse-heading-1">
+                                    <div class="iHyrYta0Jcy0_7nMWLK7 pxHuWvF853ck68OLN6ef XbA9uXviv8Jns1WOGGH8 JeVit_1klYopnNwu_8oy">
+                                        <!-- Inputs -->
+                                        <div class="i0EfZzmTLElZVOble53D my-7 Ced8tRkG1VjcbmNVdBtj hAFtnIdYDiO6M_67F11P flex flex-col ">
+                                            <div class="nqKrWSk_pMaLoiyBLZG5">
+                                                <label class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black " for="file">Upload avatar</label>
+                                                <div class="neyUwteEn7DOg9pBSJJE jCISvWkW5oStPH6Wrb_H U4m6yFbNbl_ea9gVo2Uw">
+                                                   {% if site.logo %}
+                                                    <img class="_9OKVeTXzfSwD_NYO6_G HzSN_B__bXx8FUbQhXu_ q6R7ifHNsy60SzijPw4M n8e6ORKgPTnY6zgs5HS7 p53owZpM5bKmL3hRWSQr _6or7OI7iFzuq6XP4tjM" src="{{site.logo}} " alt="Helene avatar">
+                                                    {% else %}
+                                                    <img class="_9OKVeTXzfSwD_NYO6_G HzSN_B__bXx8FUbQhXu_ q6R7ifHNsy60SzijPw4M n8e6ORKgPTnY6zgs5HS7 p53owZpM5bKmL3hRWSQr _6or7OI7iFzuq6XP4tjM" src=" " alt="Helene avatar">
+                                                    {% endif %}
+                                                    <div class="jCISvWkW5oStPH6Wrb_H">
+                                                        <input  class="jCISvWkW5oStPH6Wrb_H MxG1ClE4KPrIvlL5_Q5x g3OYBOqwXUEW4dRGogkH  jCHKuJ3G7rklx_LiAfbf _Qk4_E9_iLqcHsRZZ4ge PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa avTmsFU5TwHXQh07Ji35 eCx_6PNzncAD5yo7Qcic qHIOIw8TObHgD3VvKa5x _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z" onchange="imahs()"  aria-describedby="file_input_help" id="file" type="file">
+                                                        <p class="SczeiPsQKuBQsFlbqCbz cq1ij1EsUw0V2rrqeYEc XklWzT8y98pp042XEQp4 oTkHpmOXEgQRdykOe3sq K1PPCJwslha8GUIvV_Cr _Rz9TooiK_4jTN_Ub8Gm" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label for="image1" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">Website image1</label>
+                                                <input type="file" name="image1" onchange="imagechange('#image1', '#image1text','#xxis1')" id="image1" value="{{site.image1}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Web-site name" required="">
+                                                <input type="text" name="image1text" id="image1text" hidden value="{{site.image1}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Web-site name" required="">
+                                                <img src="{{site.image1}}" id="xxis1" class="w-10 h-10">
+                                            </div>
+                                            <div>
+                                                <label for="image2" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">Website image2</label>
+                                                <input type="file" onchange="imagechange('#image2', '#image2text','#xxis2')" name="image" id="image2" value="{{site.image2}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Web-site name" required="">
+                                                <input type="text" name="image2text" id="image2text" value="{{site.image2}}" hidden class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Web-site name" required="">
+                                            <img src="{{site.image2}}" id="xxis2" class="w-10 h-10">
+                                            </div>
+                                            <div>
+                                                <label for="first-name" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">Website Name</label>
+                                                <input type="text" name="firstname" id="name" value="{{site.name}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Web-site name" required="">
+                                            </div>
+                                            <div>
+                                                <label for="phone" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">Website Phone</label>
+                                                <input type="text" name="lastname" id="phone" value="{{site.phone}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="(888 999)" required="">
+                                            </div>
+                                            <div >
+                                                <label for="country" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">Website Phone</label>
+                                                <input type="text" name="lastname" id="country" value="{{site.country}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="(USA)" required="">
+                                            </div>
+                                            <div>
+                                                <label for="Address" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">Website Address</label>
+                                                <input type="text" name="lastname" id="Address" value="{{site.Address}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Doe" required="">
+                                            </div>
+                                            <div class="w-full min-w-[300px flex-1 flex flex-col">
+                                                <label for="email" class="ttxtqsLWp2pFRX8yUvWd rD4HtsUG_hahmbh2Kj09 dark:text-white text-black  MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0">Web-site Email</label>
+                                                <input type="email" name="email" id="email" readonly value="{{site.email}}" class="jCHKuJ3G7rklx_LiAfbf PWreZZgitgAm_Nv4Noh9 T_tFENbpK8DMDNjQRyQa g3OYBOqwXUEW4dRGogkH MxG1ClE4KPrIvlL5_Q5x _Qk4_E9_iLqcHsRZZ4ge focus:ring-primary-600 focus:border-primary-600 ttxtqsLWp2pFRX8yUvWd jCISvWkW5oStPH6Wrb_H _4wtDMQ2AdJOlYvml5sL _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk _DJ2tfp6E9c_teMKVD3z a0Ed69aMSu0vgf4oysz0 dark:focus:ring-primary-500 dark:focus:border-primary-500  " placeholder="john@company.com" required="">
+                                            </div>
+                                            
+                                           
+                                           
+                                           
+                                            <div class="flex w-full flex-col flex-1 ">
+                                                <label for="account" class="ay0ziTPUL4Ag5d1DkSY7 neyUwteEn7DOg9pBSJJE rD4HtsUG_hahmbh2Kj09 MxG1ClE4KPrIvlL5_Q5x _A6LflweZRUwrcL6M2Tk g3OYBOqwXUEW4dRGogkH a0Ed69aMSu0vgf4oysz0 dark:text-white text-black ">
+                                                    Website Discription
+                                                    
+                                                </label>
+                                                <textarea  class="w-full min-w-[400px] text-gray-950" id="Discription" value="{{site.dis}}" cols="30" rows="10">{{site.dis}}</textarea>
+                                               
+                                               
+                                                
+                                                    
+                                                </input>
+                                            </div>
+                                            
+                                            
+                                            
+                                          
+                                          
+                                    </div>
+                                </div>
+                               
+                               
+                                </div>
+                                <div class="kqgYncRJQ7spwKfig6It neyUwteEn7DOg9pBSJJE x1NtnN5a2v_Vi6iT26nf veFXkDzfJN473U3ycrV8 ZLpoEVbvjZ2Wkm42QsPD hao1XUiLwm82uRmdZ0qR _kWIOV0qD_6JvPTQrwHs">
+                                    
+                                    <button onclick="soyefeych()" type="button" class="_Vf4q96EaVweU8Te8R7I my-5 ay0ziTPUL4Ag5d1DkSY7 neyUwteEn7DOg9pBSJJE _lvH1U9a1qR55wvLD2NC PWreZZgitgAm_Nv4Noh9 QatzkcsV8pEcuVZXWI0r _2vrbtasf6kpgU0SqCxk _FONMPVaCsLFJJGDaaIL qHIOIw8TObHgD3VvKa5x BmbNHT2fTUPQcjxkS_AF _A6LflweZRUwrcL6M2Tk _Qk4_E9_iLqcHsRZZ4ge MxG1ClE4KPrIvlL5_Q5x bFARDnno0HUtfhktTXfR _gKcj49wZgnwx1LpcJi6 _F_1gdhzusC6tSOWHtx_ s8SeTMYjMx__lmlA1xPh QMg9ot58eFU1MktA3i85 DTyjKhtXBNaebZa5L0l9 mjQ5_LY0AbHQ_EJj7qy4 M5sqom8AcnqAX31nf13M bg-blue-800 text-white">
+                                        Update 
+                                    </button>
+                                </div>
+                            </div>
+                            <script>
+                                function imagechange(eme, imput,imgxx) {
+                        const filex  = document.querySelector(eme)
+                        const imputx  = document.querySelector(imput)
+                        const imgx  = document.querySelector(imgxx)
+                            const f = new FileReader()
+                        console.log('loading',);
+                        
+                        f.readAsDataURL(filex.files[0]);
+                        f.addEventListener('load',()=>{
+                            const bytx = f.result
+                            imputx.value = bytx
+                            imgx.src = bytx
+                            console.log('loading',bytx);
+                        
+                        
+                        
+                        })
+                        }
+                            </script>
+                    </div>
+                </div> 
+             
+      </main>
+{% endblock body %}

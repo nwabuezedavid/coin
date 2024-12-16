@@ -1,0 +1,150 @@
+{% extends "./base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<script src="{% static 'withdraw.js' %}"></script>
+
+<div class="nk-content nk-content-fluid">
+    <div class="container-xl wide-lg">
+      <div class="nk-content-body">
+          <h5 class="w-full flex lowercase "> /home /withdrawal -</h5>
+        <div class="buysell wide-xs m-auto">
+          
+         
+          <div class="buysell-block">
+            
+            <form
+              method="post"
+              class="buysell-form"
+            
+            >
+
+            {% csrf_token %}
+
+
+            <div class="buysell-field form-group">
+
+            <label for="walletname"  class="block text-gray-700 text-sm font-light mb-2">Select a Cryptocurrency:</label>
+<select id="walletname" required class="block appearance-none w-full bg-white border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:border-blue-500">
+  <option value="none">Select a Cryptocurrency</option>
+  <option value="btc">Bitcoin (BTC)</option>
+  <option value="eth">Ethereum (ETH)</option>
+  <option value="ada">Cardano (ADA)</option>
+  <option value="bnb">Binance Coin (BNB)</option>
+  <option value="sol">Solana (SOL)</option>
+  <option value="dot">Polkadot (DOT)</option>
+</select>
+              </div>
+              <div class="buysell-field form-group">
+                <div class="form-label-group">
+                  <label class="form-label" for="walletaddress"
+                    >Wallet Address</label
+                  >
+                  <b class="worer">~0BTC </b>
+                  
+                </div>
+                <div class="form-control-group">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg form-control-number"
+                    id="walletaddress"
+                    name=""
+                    required
+                    
+                    placeholder="wallet address"
+                  
+                  />
+               
+                  <div class="form-dropdown">
+                    <script>
+                     
+
+                    </script>
+                  </div>
+                </div>
+               
+              </div>
+              <div class="buysell-field form-group">
+                <div class="form-label-group">
+                  <label class="form-label" for="amount"
+                    >Amount in USD</label
+                  >
+                  <b class="worer">Balance: {{user.balance}} </b>
+                  
+                </div>
+                <div class="form-control-group">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg form-control-number"
+                    id="amount"
+                    name="bs-amount"
+                    required
+                    placeholder="Min 10 USD"
+                    max="{{user.balance}}"
+                    min="50"
+                         onkeyup="coov(this.value),document.querySelector('#absjdj').innerHTML =`Send $${this.value} worth of crypto select above to this Wallet  `
+                       "
+                  />
+                  <div class="form-dropdown">
+                    <script>
+                      function coov(e) {
+                        const address =document.querySelector('#wllert').value
+                        let coinx =document.querySelector('input[name="jobccc"]').id
+                        let coinname =document.querySelector('input[name="jobccc"]').name
+                        console.log(coinx);
+                        console.log(coinname);  
+                      "{% for i in coin %}"
+                        crptoconverter("worer",'{{i.address}}' == address ?'{{i.name | lower}}':'' ,e)
+                        "{% endfor %}"
+                        
+                      }
+
+                    </script>
+                  </div>
+                </div>
+                <div class="form-note-group">
+                  <span class="buysell-min form-note-alt"
+                    >Minimum: 10.00 USD</span
+                  ><span class="buysell-rate form-note-alt"
+                    >1 USD = 0.000016 BTC</span
+                  >
+                </div>
+              </div>
+              
+              
+              <div class="buysell-field form-action">
+                <button type="submit"
+                  class="btn btn-lg btn-block btn-primary capitalize"
+                  data-bs-toggle="modal"
+                  href=""
+                  id="submits"
+                  
+                  > withdraw</button
+                >
+              </div>
+              <script>
+
+
+              </script>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script defer>
+        let f = document.querySelector('form')
+        let fx = document.querySelector('#submits')
+        f.addEventListener('submit',(e)=>{
+          e.preventDefault()
+          withdrawal('#submits')
+          f.disable = true;
+          fx.disabled = true;
+          fx.innerHTML = "loading..."
+         
+
+        })
+      </script>
+    </div>
+  </div>
+{% endblock content %}  
+
+  

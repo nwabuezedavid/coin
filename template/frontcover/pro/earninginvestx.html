@@ -1,0 +1,65 @@
+
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+
+{% block body %}
+<main class="pb-[12%] h-fit bg-[#ffffffa7] dark:text-white text-black dark:bg-[#000000d2] w-full  min-h-full">
+
+                <!-- Start coding here -->
+                <div class="bg-transparent  relative shadow-md sm:rounded-lg overflow-hidden">
+                    
+                    <h1 class="text-black text-[120%] m-12 dark:text-white text-black"> EARNING <i class="bi bi-arrow-right text-gray-600"></i>/NET-INCOME </h1>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs shadow-md shadow-slate-300 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="uppercase px-4 py-3">ID</th>
+                                    <th scope="col" class="uppercase px-4 py-3">date /time</th>
+                                    <th scope="col" class="uppercase px-4 py-3">Status</th>
+                                    <th scope="col" class="uppercase px-4 py-3">Description</th>
+                                    <th scope="col" class="uppercase px-4 py-3">Amount</th>
+                                    <th scope="col" class="uppercase px-4 py-3">
+                                        <span class="sr-only">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if user.invested %}
+                                {% for i in  allnew %}
+                                <tr class="border-b dark:bg-black bg-[white] dark:border-gray-700">
+                                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{i.uuid}}</th>
+                                    <td class="px-4 py-3 capitalize">{{i.date}}</td>
+                                    {% if i.off == True %}
+                                    <td class="px-4 py-3 capitalize">Claimed </td>
+                                    {% else %}
+                                    <td class="px-4 py-3 capitalize">processing... </td>
+                                    {% endif %}
+                                    <td class="px-4 py-3 capitalize">{{i.useronplan.name}} every {{i.useronplan.daygiven}} day  </td>
+                                    <td class="px-4 py-3 capitalize">{{i.amounttobeadd}} plus {{i.useronplan.interest}}%</td>
+                                    {% if i.off == True %}
+                                   
+                                    <td class="px-4 py-3 flex items-center justify-end">
+                                        <b class=" dark:bg-[#ffffff40] p-3 bg-blue-600  rounded-full"> <i class="bi bi-check  text-red-100 font-extrabold"></i></b>
+                                    </td>
+                                    {% else %}
+                                    <td class="px-4 py-3 flex items-center justify-end">
+                                        <i class=" dark:bg-black bg-red-100 animate-spin h-10 w-10 rounded-full border border-y-0 dark:border-x-white  border-x-red-900  border-x-3 border-dashed "></i>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                                
+                               
+                               
+                            </tbody>
+                        </table>
+                    </div>
+               
+                </div>
+             
+      </main>
+  {% endblock body %}

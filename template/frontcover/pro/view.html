@@ -1,0 +1,37 @@
+
+{% extends "./base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<div class="nk-content nk-content-fluid">
+
+<div class="w-full h-full items-center flex-col justify-center text-center">
+<h4 class="w-full flex capitalize">Transcation status</h4>
+{% if cc.approved == True  %}    
+<img src="{% static 'ss.jpg' %}" class="w-[120px] h-[120px] " alt="">
+{% else %}
+<img src="{% static 'cc/pend.gif' %}" class="w-[120px] h-[120px] " alt="">
+{% endif %}
+
+{% if isd == True %}
+<p> Your Deposit of  {{cc.amount}} 
+{% if cc.approved == True  %}    
+was Successfull
+{% else %}
+is still of Pending
+{% endif %}
+</p>
+{% else %}
+<p> Your Withdraw of  {{cc.amount}} 
+    {% if cc.approved == True  %}    
+    was Successfull
+    {% else %}
+    is still of Pending
+    {% endif %}</p>
+{% endif %}
+</p>
+
+<big>Date: {{cc.date}}</big>
+
+{% endblock content %}

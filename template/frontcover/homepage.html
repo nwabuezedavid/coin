@@ -1,0 +1,392 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+
+{% block body %}
+<section id="into" style=" background-image: url('{% static 'bg.jpg' %}');  " class="bg-black items-end w-full flex justify-evenly flex-wrap  bg-no-repeat bg-cover dark:bg-black overflow-visible max-sm:w-screen flex-row-reverse">
+   
+    <img src="{% static 'IMG_9330.PNG' %}" class="md:hidden" alt="">
+    <div  class=" mt-[0%] max-sm:pt-[2%] md:flex-col py-2 items-center px-4 mx-auto md:flex  max-w-screen-xl max-md:text-left lg:py-7 z-10 relative">
+       <h1  class="text-[290%] font-bold text-white">Future Of Finance </h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16
+         lg:px-48 dark:text-gray-200 w-full">Ai-intergeted crypto wallet  and auto trading solutions  </p>
+        <a href="/register" class="inline-flex justify-between   items-center  mb-7 text-white text-md gap-2 items-center flex  bg-[#e7ca22]  rounded-md font-bold  px-4 py-2">
+            SIGN-UP <i class="bi bi-chevron-right">  </i>
+        </a>
+    </div>
+
+        
+</section>
+   
+
+
+
+<section class="relative introcuction flex flex-row h-fit mb-[6%]  mt-[6%] flex-wrap justify-center items-center ">
+    <div class=" max-sm:[100%]  !text-black *:text-black w-[500px]  flex flex-col  flex-grow  px-7 delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible [animation-iteration-count:infinite] " data-taos-offset="400">
+        <span class="flex flex-col w-full group-hover mb-6">
+            <b class="text-3xl dark:text-white text-black">Time to invest is right now !</b>
+<hr class="h-2 rounded bg-white w-11 transition-all group-hover:w-16" >
+        </span>
+
+        
+        <big class="w-full dark:text-white text-black duration-[300ms] taos:[transform:perspective(2500px)_rotateY(100deg)] taos:invisible taos:[backface-visibility:hidden]" data-taos-offset="400" >
+            <b class=" font-thin " >
+              with   {{site.name}},  you  have the capabilty to securely store all your crypto , invest your crypto  and withdraw or spend then via payment debit cards .
+            </b>
+
+   <ul class="capitalize  flex flex-col items-left pl-4 mt-[21%] *:flex  w-full gap-3 *:mt-5 mt-[] *:gap-3 ">
+    <li class="flex w-full flex gap-4 items-center "> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+      </svg> secure payments</li>
+    <li class="flex w-full flex gap-4 items-center "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+      </svg> Ai auto trading </li>
+    <li class="flex w-full flex gap-4 items-center "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+      </svg>  digital wallet </li>
+    <li class="flex w-full flex gap-4 items-center "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+        <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+      </svg>  enhanced security </li>
+   </ul>
+            
+            
+            </big>
+             
+    </div>
+    <div class="w-[500px] h-[100%] flex-grow    relative     delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible [animation-iteration-count:infinite] " data-taos-offset="400" style="">
+        {% if site.image2 %}
+        <section style="background-position: center; background-size: contain; background-repeat: no-repeat;" class="w-[100%] h-[600px] object-fill bg-[url('{{site.image2}}')]  ]" src="" alt="" ></section>
+        <img src="{% static 'l.png' %}" class="absolute bottom-[20%] object-contain  left-[6%] w-[50%] h-[220px]" alt="">
+        
+        {% else %}
+        <section style="background-position: center; background-size: contain; background-repeat: no-repeat;" class="w-[100%] h-[600px] object-fill bg-[url('{% static 'cc/x.jpeg' %}')]  ]" src="" alt="" ></section>
+        {% endif %}
+
+    </div>
+<div class="absolute w-[100%] h-full dark:bg-[#506f912c] shadow-md shadow-gray-500 top-0 left-0 bg-[#ebbf5936] -z-10" style="clip-path: polygon(0 0, 0% 100%, 100% 100%);"></div>
+</section>
+
+
+  
+
+    
+
+<section class="w-full max-sm:w-screen flex flex-col ">
+    <center class="text-black dark:text-white text-[32px] p-12">WHY CHOOSE US</center>
+    <div class="flex flex-row align-middle  gap-2 justify-center items-left flex-wrap">
+        <div class="w-[400px] duration-[300ms] shadow-gray-100 taos:[transform:perspective(2500px)_rotateY(100deg)] taos:invisible taos:[backface-visibility:hidden] h-[340px] dark:text-white text-gray-950 justify-center items-center flex flex-col text-center dark:shadow bg-[#02020541] dark:bg-[#0000006c] bg-[#ffffff4d]">
+            <img src="https://media.istockphoto.com/id/958095640/vector/stock-market-graph.jpg?s=612x612&w=0&k=20&c=UBh-fGapbLtJMA4rfbSVkYoM0IXjbRt34eIeumOXaKA=" class="w-full h-[160px]"  alt="">
+            <h1 class="text-2xl font-bold">Save on interest</h1>
+            <p class="p-2 bg-blend-difference ">
+With the {{site.name}} Account get a 0% intro APR offer, plus no annual fee. Find out if you're preapproved for NexviaLimited.com® card with no impact to your credit to check.</p>
+        </div>
+        <div class="w-[400px] duration-[300ms] taos:[transform:perspective(2500px)_rotateY(100deg)] taos:invisible taos:[backface-visibility:hidden] h-[340px]  dark:shadow shadow-gray-100 dark:text-white text-gray-950 justify-center items-center flex flex-col text-center bg-[#02020541] dark:bg-[#0000006c] bg-[#ffffff4d]">
+            <img src="https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGhvbWUlMjBsb2FufGVufDB8fDB8fHww" class="w-full h-[160px]"  alt=""> 
+            <h1 class="text-2xl font-bold">Get checking with the right features</h1>
+            <p class="p-2 bg-blend-difference "> Open {{site.name}} total Wallet account and set up direct deposit. Including a $0 Liability Guarantee that helps cover you from unauthorized transactions.</p>
+        </div>
+        <div class="w-[400px] h-[340px]  dark:shadow shadow-gray-100 dark:text-white text-gray-950 justify-center duration-[300ms] taos:[transform:perspective(2500px)_rotateY(100deg)] taos:invisible taos:[backface-visibility:hidden] items-center flex flex-col text-center bg-[#02020541] dark:bg-[#0000006c] bg-[#ffffff4d]">
+            <img src="https://images.unsplash.com/photo-1634757439914-23b8acb9d411?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGhvbWUlMjBsb2FufGVufDB8fDB8fHww" class="w-full h-[160px]"  alt="">
+            <h1 class="text-2xl font-bold">Home loans, covered</h1>
+            <p class="p-2 bg-blend-difference ">Refinance a mortgage balance from $35,000 to $300,000 with {{site.name}}.com Home Loans, enjoy zero charges at closing.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+#llcss{
+    display: flex;
+    width: 100%;
+    background-color: transparent !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    & .animated{
+        width: 400px;
+        height: 400px;
+        
+        background: white;
+        flex-direction: column;
+        display: flex;
+
+    }
+}
+
+
+
+</style>
+
+<section id="plan" class="py-10 bg-white dark:text-white dark:bg-transparent sm:py-16 lg:py-24">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center  ">
+            <h2 class="text-3xl font-bold leading-tight dark:text-white text-black sm:text-4xl lg:text-5xl">Pricing & Plans</h2>
+            <p class="max-w-xl dark:text-white mx-auto mt-4 text-base leading-relaxed text-gray-600">Invest today, thrive tomorrow. {{site.name}}: Your gateway to financial growth and a thriving community of crypto enthusiasts.
+    
+                .</p>
+        </div>
+
+        <div class="grid dark:text-white max-w-md grid-cols-1 gap-6 mx-auto mt-8 text-center lg:max-w-full lg:mt-16 lg:grid-cols-3 ">
+            {% if plan %}
+           {% for p in plan %}
+            <div class="overflow-hidden dark:shadow-[#8080805f] bg-transparent  border-2 dark:border-none dark:shadow [animation-iteration-count:infinite] border-gray-100 rounded-mdduration-[300ms] taos:[transform:perspective(2500px)_rotateX(-100deg)] taos:invisible taos:[backface-visibility:hidden] max-w-[96vw]" data-taos-offset="400">
+                <div class="relative p-8 xl:px-12">
+                    <h3 class=" font-semibold dark:text-white text-black uppercase text-3xl">{{p.name}} </h3>
+
+
+                        <p class="text-3xl font-bold text-black mt-7"> 
+                           </p>
+                       
+                            
+
+
+                    <ul  class=" z-50 inline-flex dark:text-[white] text-black flex-col items-start space-y-5 text-left bg-transparent mt-9">
+                        <li class="font-extrabold inline-flex items-center space-x-2 w-full flex justify-between">
+                          
+                          
+                                <b class="text-xl uppercase font-extrabold dark:text-[white] text-black">${{p.minplan}}.00</b>
+                                -
+                                <big>${{p.maxplan}}.00</big>
+                     
+                        </li>
+                     
+
+                        <li class="inline-flex items-center space-x-2">
+                            <svg class="flex-shrink-0 w-5 h-5  text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            
+                            <span class="text-base font-medium text-gray-900 dark:text-white"> Return {{p.interest}}% </span>
+                            
+                        </li>
+                        <li class="inline-flex items-center space-x-2">
+                            <svg class="flex-shrink-0 w-5 h-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-base font-medium dark:text-white text-gray-900">Every {{p.daygiven}} Day (s) </span>
+                        </li>
+
+                      
+
+                        <li class="inline-flex items-center space-x-2 z-40">
+                            <svg class="flex-shrink-0 w-5 h-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="pb-0.5 text-base font-medium dark:text-white text-gray-900 border-b border-black border-dashed"> Premium Support </span>
+                        </li>
+                    </ul>
+
+                    <a href="#" title="" class="inline-flex items-center z-50 justify-center px-10 py-4 mt-10 text-base font-semibold text-white transition-all duration-200 bg-[#dbbf21] rounded-md hover:bg-blue-700 focus:bg-blue-700" role="button"> Get Started </a>
+                    <p class="mt-4 text-sm text-gray-500">for {{p.daygiven}} day </p>
+                <big class="absolute top-0 left-0  w-full h-full bg-[#ebbf5936] dark:bg-[#506f912c]" style="clip-path: polygon(44% 0, 100% 0%, 100% 100%, 0% 100%);
+                "></big>
+                </div>
+            </div>
+
+             {% endfor %}
+             {% endif  %}
+            
+            
+
+            
+        </div>
+    </div>
+</section>
+
+
+<section class="dark:text-white relative introcuction flex flex-row h-fit mb-[6%]  mt-[6%] flex-wrap justify-center items-center">
+    <div class=" dark:text-white max-sm:[100%] w-[500px] min-w[700px] flex flex-col  flex-grow  px-11">
+        <span class="flex flex-col w-full group-hover mb-6 dark:text-white text-black">
+            <b class="text-3xl">Referral Program</b>
+<hr class="h-2 rounded bg-[#dbbf21] w-11 transition-all group-hover:w-16" >
+        </span>
+
+        
+        <big class="w-full dark:text-white text-black" >
+            At our platform, we believe in the power of community and the value of shared success. That's why we're excited to introduce our comprehensive referral program, designed to reward both our existing users and their referred friends.
+            
+            </big>
+            <div class="flex  flex-col w-full mb-10 pb-6  mt-11 space-y-6">
+                <h3 class="font-bold text-3xl mb-10 dark:text-white text-black">Why Join Our Referral Program?</h3>
+<span class="flex flex-col p-3  hover:rounded-lg shadow-sm shadow-white rounded-md dark:bg-[#0000006c] bg-[#ffffff4d] space-y-2  delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible [animation-iteration-count:infinite] " data-taos-offset="400">
+
+    <li class="inline-flex items-center space-x-2">
+        <i class="las la-hand-holding-usd text-[64px] text-blue-900"></i>
+        <span class=" dark:text-white text-black font-extrabold text-3xl"> 
+            Earn 5% Bonus:
+        </span>
+        
+    </li>
+    <b class="text-gray-900 dark:text-white" > - For every person you refer to our platform who makes an investment, both you and your referred friend will receive a generous 5% bonus on their invested amount. It's our way of saying thank you for being a part of our growing community.</b>
+</span>
+<span class="flex flex-col p-3  hover:rounded-lg  shadow-sm shadow-white rounded-md  dark:bg-[#0000006c] bg-[#ffffff4d] space-y-2  delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible [animation-iteration-count:infinite] " data-taos-offset="400">
+
+    <li class="inline-flex items-center space-x-2">
+        <i class="las la-globe text-[64px] text-[64px] text-blue-900"></i>
+        <span class=" dark:text-white text-black font-extrabold  text-3xl"> 
+            Easy to Participate:
+        </span>
+        
+    </li>
+    <b class="text-gray-900 dark:text-white" > - Getting started is simple. Access your account dashboard, find your unique referral link, and share it with your network. Whether it's through social media, email, or direct messages, spreading the word has never been easier.
+    </b>
+</span>
+<span class="flex flex-col p-3  hover:rounded-lg shadow-sm shadow-white rounded-md  bg-[#0000006c] space-y-2  delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:invisible dark:bg-[#0000006c] bg-[#ffffff4d] [animation-iteration-count:infinite] " data-taos-offset="400">
+
+    <li class="inline-flex items-center space-x-2">
+         <i class="las la-retweet text-[64px] text-blue-900"></i>
+        <span class=" dark:text-white text-black font-extrabold text-3xl"> 
+            Shared Success:
+        </span>
+        
+    </li>
+    <b class="dark:text-white text-gray-900" > - 
+         We believe that success is sweeter when shared. By referring friends, you're not just benefiting yourself – you're extending the opportunity for financial growth to others as well.
+    </span>
+<span class="flex shadow-sm p-3 hover:rounded-lg shadow-white rounded-md  bg-[#0000006c] flex-col space-y-2   delay-[300ms] duration-[600ms] taos:translate-x-[-100%] dark:bg-[#0000006c] bg-[#ffffff4d] taos:invisible [animation-iteration-count:infinite] " data-taos-offset="400">
+
+    <li class="inline-flex items-center space-x-2">
+       
+        <i class="las la-balance-scale-left text-[64px] text-blue-900"></i>
+        <span class=" dark:text-white text-black  font-extrabold text-3xl"> 
+            Track Your Progress:
+
+        </span>
+        
+    </li>
+    <b class="dark:text-white text-gray-900" > - 
+         Keep tabs on your referral success with our user-friendly dashboard. Monitor the number of friends you've referred, track their investments, and see the bonuses accumulate in real-time.
+    </span>
+            </div>
+             
+    </div>
+  
+    <div class="w-[500px] h-[100%] max-md:w-screen flex-grow   bg-transparent  [animation-iteration-count:infinite] border-gray-100 rounded-mdduration-[300ms] taos:[transform:perspective(2500px)_rotateX(-100deg)] taos:invisible dark:bg-[#0000006c] bg-[#ffffff4d] taos:[backface-visibility:hidden]" data-taos-offset="400" style="">
+        
+        {% if site.image1 %}
+    <video class="w-[500px]" src="{% static 'cc/xx.jpg' %}" poster="{{site.image1}}"></video>
+    {% else %}
+    <video class="w-[500px]" src="{% static 'cc/xx.jpg' %}" poster="{% static 'cc/xx.jpg'  %}"></video>
+    {% endif %}
+    </div>
+<div class="absolute md:w-[70%] dark:bg-[#506f912c] w-full h-full shadow-md shadow-gray-500 top-0 left-0 bg-[#ebbf5936] -z-10" style="clip-path: circle(50% at 24% 44%);"></div>
+</section>
+
+
+
+
+
+
+<!-- Slider -->
+
+<div class="max-w-2xl mx-auto text-center mb-12">
+    <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl dark:text-white">INVESTORS & COMMENTS</h2>
+    <p class="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600 dark:text-white mb-8"> Transparency meets opportunity at {{site.name}}.
+         Dive into real-time market insights and make informed decisions for a prosperous crypto journey
+    
+        .</p>
+</div>
+
+<section class="mb-32 relative flex flex-row justify-center align-middle text-center items-center">
+<div class="z-50 max-md:w-full md:w-[40%] " data-hs-carousel='{
+    "loadingClasses": "opacity-0",
+    "isAutoPlay": true
+  }' class="relative">
+  <div class="hs-carousel relative overflow-hidden w-full min-h-[450px] bg-traparent rounded-lg">
+    <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
+        <div class="hs-carousel-slide">
+            <div class=" relative flex justify-center h-full dark:bg-transparent dark:shadow-sm dark:shadow-yellow-100 bg-[#0000ff1b] backdrop-blur-sm shadow  shadow-gray-500 p-6">
+             <div class="   transition duration-700 z-50">
+                <span class="space-x-2 flex">
+                    
+                    <i class="flex text-[90px] font-mono">"</i>
+                    <i class="flex text-[90px] font-mono">"</i>
+                </span>
+                <p class="z-50 backdrop-blur-0">
+    
+                     **"{{site.name}} Elite's premium features and excellent customer support have made my investment journey truly sophisticated. I'm achieving my financial goals faster than I thought possible."**
+                </p>
+             </div>
+             <small class="flex text-right items-end absolute w-full h-full top-0 right-0 bg-[white] dark:text-white dark:bg-[#ebbf5936]  rounded-md shadow-sm shadow-[#ebbf5936]" style="clip-path: ellipse(40% 40% at 14% 93%);">
+            <p class="text-black mb-[10%] p-3 text-[90%] font-bold font-sans dark:text-white ">DAVID NICK (PERMIUM INVESTOR) </p>
+            </small>
+            </div>
+          </div>
+     
+      <div class="hs-carousel-slide">
+        <div class=" relative flex justify-center h-full dark:bg-transparent dark:shadow-sm dark:shadow-yellow-100 bg-[#0000ff1b] backdrop-blur-sm shadow  shadow-gray-500 p-6">
+         <div class="  transition duration-700 z-50">
+            <span class="space-x-2 flex">
+                
+                <i class="flex text-[90px] font-mono">"</i>
+                <i class="flex text-[90px] font-mono">"</i>
+            </span>
+            <p class="z-50">
+                **"{{site.name}} Growth provided the scalability I needed for my portfolio. The returns have exceeded my expectations, and I'm excited to continue growing with this plan!"**
+            </p>
+         </div>
+         <small class="flex text-right items-end absolute w-full h-full top-0 right-0 bg-[white] dark:text-white dark:bg-black  rounded-md shadow-sm shadow-[#80808034]" style="clip-path: ellipse(40% 40% at 14% 93%);">
+        <p class="text-black mb-[10%] p-3 text-[90%] font-bold font-sans dark:text-white ">SARAH BUKY </p>
+        </small>
+        </div>
+      </div>
+      <div class="hs-carousel-slide">
+        <div class=" relative flex justify-center h-full dark:bg-transparent dark:shadow-sm dark:shadow-yellow-100 bg-[#0000ff1b] backdrop-blur-sm shadow  shadow-gray-500 p-6">
+         <div class=" transition duration-700 z-50">
+            <span class="space-x-2 flex">
+                
+                <i class="flex text-[90px] font-mono">"</i>
+                <i class="flex text-[90px] font-mono">"</i>
+            </span>
+            <p class="z-50">
+                Thanks to {{site.name}}, I started with the Basic plan and now my investments are growing steadily. It's the perfect stepping stone for beginners! </p>
+         </div>
+         <small class="flex text-right items-end absolute w-full h-full top-0 right-0 bg-[white] dark:text-white dark:bg-black  rounded-md shadow-sm shadow-[#80808034]" style="clip-path: ellipse(40% 40% at 14% 93%);">
+        <p class="text-black mb-[10%] p-3 text-[90%] font-bold font-sans dark:text-white ">MICHEAL JAME  </p>
+        </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="hs-carousel-prev hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/[.1]">
+    <span class="text-2xl" aria-hidden="true">
+      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+      </svg>
+    </span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button type="button" class="hs-carousel-next hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/[.1]">
+    <span class="sr-only">Next</span>
+    <span class="text-2xl" aria-hidden="true">
+      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </span>
+  </button>
+
+  <div class="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2">
+    <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 w-3 h-3 border border-gray-400 rounded-full cursor-pointer"></span>
+    <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 w-3 h-3 border border-gray-400 rounded-full cursor-pointer"></span>
+    <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 w-3 h-3 border border-gray-400 rounded-full cursor-pointer"></span>
+  </div>
+</div>
+<div class="absolute top-0 left-0 h-full w-full bg-[#00ccff36] " style="clip-path: ellipse(25% 40% at 14% 23%);
+">
+
+</div>
+<div class="absolute top-0 lerightft-0 h-full w-full bg-[#503d8725] dark:bg-[#506f912c]" style="clip-path: polygon(78% 0, 100% 0%, 100% 100%, 0% 100%);">
+
+</div>
+</section>
+<!-- End Slider -->
+
+
+
+{% endblock%}

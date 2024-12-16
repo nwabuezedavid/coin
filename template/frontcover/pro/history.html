@@ -1,0 +1,139 @@
+
+  
+{% extends "./base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="nk-content nk-content-fluid">
+    <div class="container-xl wide-lg">
+      <div class="nk-content-body">
+        <div class="nk-block-head">
+          <div class="nk-block-between-md g-4">
+            <div class="nk-block-head-content">
+              <h2 class="nk-block-title fw-normal">Your Orders</h2>
+              <div class="nk-block-des">
+                <p>See full list of your orders of your account</p>
+              </div>
+            </div>
+            <div class="nk-block-head-content">
+              <ul class="nk-block-tools gx-3">
+              
+              
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nk-block nk-block-sm">
+          <div class="nk-block-head nk-block-head-sm">
+            <div class="nk-block-between">
+              <div class="nk-block-head-content">
+                <h6 class="nk-block-title">All Transcations</h6>
+              </div>
+              <ul class="nk-block-tools gx-3">
+               
+                <li>
+                  <a
+                    href="#"
+                    class="search-toggle toggle-search btn btn-icon btn-trigger"
+                    data-target="search"
+                    ><em class="icon ni ni-search"></em
+                  ></a>
+                </li>
+              
+              </ul>
+            </div>
+           
+          </div>
+         
+          <div class="tranx-list tranx-list-stretch card card-bordered">
+            {% if current %}
+            {% for i in  current|dictsort:"date" reversed  %}
+            <div id="{{i.uuid}}"  class="tranx-item  w-full">
+              <div class="tranx-col">
+                <div class="tranx-info">
+                  <div class="tranx-data">
+                    <div class="tranx-label flex flex-col">
+                        <a 
+                    href="{% url 'viewtrans' i.uuid %}"
+                        
+                        className="">
+                            {% if i.address %}
+                          <b class="text-red-400 " style="color: #b0484876; text-transform: uppercase;">Withdraw</b> <br>
+                          {% else %}
+                          <b class="text-red-400 " style="color: #2c90cf76; text-transform: uppercase;">Deposit</b> <br>
+                                {% endif %}
+                        {{i.uuid}}
+
+                      </a>
+                      {% if i.approved == False %}
+                      <div
+                        class="w-[30px] bg-red-0 animate-spin border-r-2 border-r-red-500  h-[30px] rounded-full"
+                        >
+                      </div>
+                      {% else %}
+                      <div
+                      class="w-[30px] bg-cyan-50   flex items-center justify-center border-r-2 border-r-red-500  h-[30px] rounded-full"
+                      >
+                      <i class="bi bi-check text-red-800"></i>
+                      </div>
+                      {% endif %}
+                    </div>
+                    <div class="tranx-date">
+                      {{i.date}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tranx-col">
+                <div class="tranx-amount">
+                  <div class="number idgetch{{i.uuid}}" >
+                    {{i.amount}}
+                    <span class="currency currency-btc"></span>
+
+                  </div>
+                  <div class="number-sm">
+                    {{i.amount}}
+                    <span class="currency currency-usd">USD</span>
+                  </div>
+                  {% if i.approved == False %}
+                  <div class="number-sm !text-red-400">
+                    Pending.. 
+                  </div>
+                      {% else %}
+                      <div class="number-sm !text-cyan-200">
+                       Approved
+                      </div>
+                      {% endif %}
+                  
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <center class="min-h-[30px] p-4">EMPTY</center>
+            {% endif %}
+          </div>
+          <script>
+            "{% for i in current %}"
+            // crptoconverter('idgetch{{i.uuid}}',"{{i.coin.name | lower}}","{{i.amount}}")
+            
+            setInterval(() => {
+              crptoconverter('idgetch{{i.uuid}}',"{{i.coin.name | lower}}","{{i.amount}}")
+              
+            }, 4000)
+            " {% endfor %}"
+      </script>
+          <div class="text-center pt-4" style="display: none;">  
+            <a
+              href="#"
+              class="link link-soft"
+              ><em class="icon ni ni-redo"></em
+              ><span>Load More</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

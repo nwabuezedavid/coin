@@ -1,0 +1,166 @@
+
+{% extends "./base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<script src="{% static 'deposite.js' %}" defer></script>
+
+
+<div class="nk-content nk-content-fluid">
+    <div class="container-xl wide-lg">
+      <div class="nk-content-body">
+        <div class="buysell wide-xs m-auto">
+          
+         
+          <div class="buysell-block">
+            <form
+              method="post"
+              class="buysell-form"
+            >
+            {% csrf_token %}
+              <div class="buysell-field form-group">
+                <div class="form-label-group">
+                  <label class="form-label"
+                    >Choose what you want to get</label
+                  >
+                </div>
+                <input
+                  type="hidden"
+                  value="btc"
+                  name="bs-currency"
+                  id="buysell-choose-currency"
+                />
+                <div class="dropdown buysell-cc-dropdown">
+                  <a
+                    href=""
+                    class="buysell-cc-choosen dropdown-indicator"
+                    data-bs-toggle="dropdown"
+                    ><div class="coin-item coin-btc">
+                      <div class="coin-icon">
+                        <em class="icon bi bi-currency-exchange"></em>
+                      </div>
+                      <div class="coin-info">
+                        <span class="coin-name">Choose Wallet </span
+                        >
+                        
+                      </div>
+                    </div></a
+                  >
+                  <div
+                    class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh"
+                  >
+                    <ul class="buysell-cc-list">
+                    
+                      {% if coin %}
+                      {% for i in coin %}
+                          <label  onchange=" document.querySelector('#wallelogo').src = '{{i.logo}}',document.querySelector('.coin-name').innerHTML = '{{i.name}}', document.querySelector('#wllert').value = '{{i.address}}' "  for="{{i.name}}" class=" checked:text-black items-center text-center justify-center  flex  w-[60px]  relative text-gray-900 bg-blue-600 border p-3 border-gray-200 rounded-lg cursor-pointer uppercase text-white dark:hover:text-gray-300 w-full dark:border-gray-500 dark:checked:text-blue-500 peer-checked:border-blue-600 checked:text-blue-600 focus:bg-red-700 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">                           
+                              <input onclick="coov(document.querySelector('#buysell-amount').value)" type="radio" id="{{i.name}}"   name="jobccc" value="{{i.uuid}}"  class="hidden peer" required>
+                            <p class=" ">{{i.name}}</p>
+                          </label>
+
+                          
+                      {% endfor %}
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="buysell-field form-group">
+                <div class="form-label-group">
+                  <label class="form-label" for="buysell-amount"
+                    >Amount in USD</label
+                  >
+                  <b class="worer">~0BTC </b>
+                  
+                </div>
+                <div class="form-control-group bg-red-700" >
+                  <input
+                    type="text"
+                    class="form-control form-control-lg form-control-number"
+                    id="buysell-amount"
+                    name="bs-amount"
+                    required
+                    placeholder="Min 10 USD"
+                    min="10"
+                         onkeyup="coov(this.value),document.querySelector('#absjdj').innerHTML =`Send $${this.value} worth of crypto select above to this Wallet  `
+                       "
+                  />
+                  <div class="form-dropdown">
+                    <script>
+                      function coov(e) {
+                        const address =document.querySelector('#wllert').value
+                        let coinx =document.querySelector('input[name="jobccc"]').id
+                        let coinname =document.querySelector('input[name="jobccc"]').name
+                        console.log(coinx);
+                        console.log(coinname);  
+                      "{% for i in coin %}"
+                        crptoconverter("worer",'{{i.address}}' == address ?'{{i.name | lower}}':'' ,e)
+                        "{% endfor %}"
+                        
+                      }
+
+                    </script>
+                  </div>
+                </div>
+                <div class="form-note-group">
+                  <span class="buysell-min form-note-alt"
+                    >Minimum: 10.00 USD</span
+                  ><span class="buysell-rate form-note-alt"
+                    >1 USD = 0.000016 BTC</span
+                  >
+                </div>
+              </div>
+              <div class="w-full flex flex-col  p-10 bg-black rounded-md">
+                <small class="uppercase p-3 font-extrabold dark:text-white text-white bg-gray-600 w-full " id="absjdj"> </small>
+                <big class="w-full h-fit bg-[#0a0606] text-center items-center justify-center p-5 ">
+                    <img src="" id="wallelogo"  class=" max-sm:w-full sm:w-[60%] h-[190px] p-[auto] m-auto  " alt="">
+                </big>
+                <input type="text" required readonly  id="wllert" name=""  placeholder="WALLET ADDRESS" value="" class=" flex items-center justify-center text-center  dark:text-black  mt-10% p-4 text-2xl  text-black">
+                  <center class="text-red-500 cursor-pointer" onclick="copyText('wllert')">Copy The wallet Address </center>
+              </div>
+              <div class="w-full flex flex-col  p-10">
+                <label for="filexx" class="w-full h-[230px] text-white bg-red-300 items-center justify-center text-center">
+                <h2>UPLOAD  PROOF <br> click here </h2>  
+                </label>
+                <input type="file" required class="hidden" hidden id="filexx">
+              </div>
+              
+              <div class="buysell-field form-action">
+                <button type="submit"
+                  class="btn btn-lg btn-block btn-primary"
+                  data-bs-toggle="modal"
+                  href=""
+                  id="submits"
+                  >CONFIRM DEPOSIT</button
+                >
+              </div>
+              <script>
+
+
+              </script>
+            </form>
+
+            
+            
+            <script defer>
+              let f = document.querySelector('form')
+              let fx = document.querySelector('#submits')
+              f.addEventListener('submit',(e)=>{
+                e.preventDefault()
+                deposite('#submits')
+                f.disable = true;
+                fx.disabled = true;
+                fx.innerHTML = "loading..."
+               
+      
+              })
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+

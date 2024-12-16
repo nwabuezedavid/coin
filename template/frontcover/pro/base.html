@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+
+<html lang="zxx" class="js">
+  <div
+    id="in-page-channel-node-id"
+    data-channel-name="in_page_channel_4iXKYh"
+  ></div>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="{{site.name}}" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="{{site.dis}}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{i.logo}}"
+    />
+    <title> Dashboard | {{i.name}} </title>
+    <link rel="stylesheet" href="{% static 'asset/js/dashlite.css' %}" />
+    <link id="skin-default" rel="stylesheet" href="{% static 'asset/js/theme.css' %}" />
+    <script
+      type="text/javascript"
+      async=""
+      defer
+      src="{% static 'asset/js/analytics.js.download' %}"
+    ></script>
+    <link rel="stylesheet" href="{% static 'bootstrap-icons-1.10.5/font/bootstrap-icons.css' %}">
+
+    <script defer type="text/javascript" async="" src="{% static 'asset/js/js' %}"></script>
+    <script defer async="" src="{% static 'asset/js/js(1)' %}"></script>
+    <script>
+      function fetchcheckedintreseted() {
+          const pk = document.querySelector('#pk').value
+          let j = location.host
+          let jx = location.protocol
+          fetch(`${jx}//${j}/api/addnetintrest/${String(pk)}/`)
+          .then(req =>req.json())
+          .then(red => {
+              
+              if (red.data){
+                  document.querySelector('body').innerHTML+=`
+                  <div id="aleribef" onclick="document.querySelector('#aleribef').classList.add('hidden')"  class="fixed  w-full h-full  z-50 transition-opacity transition-all  left-0 bg-[#0000004c] items-center justify-center flex  top-0  "   style="z-index: 99999;">
+                    
+
+          <div onclick="document.querySelector('#aleribef').classList.add('flex')" class=" z-50 bg-[white] flex flex-col sm:flex-row  items-center justify-center sm:h-[40%] h-[80%] overflow-hidden p-9 max-sm:w-[96%] w-[70%] " >
+
+      <img class="sm:w-1/2 sm:w-full sticky top-0" src="{% static 'earn.png' %}" alt="">
+      <span class="sm:w-1/2 sm:w-full h-full  overflow-auto">
+          <span >
+          <h1 class="flex flex-row">
+              <img class="w-10 h-10 " src="{% static 'signupGift.gif' %}" alt="">
+              Congratulations on Your BTC Investment Success! 
+              <img class="w-10 h-10 " src="{% static 'signupGift.gif' %}" alt="">
+               </h1>
+          <h4>Dear ${red.username},</h4>
+          <p>We're thrilled to inform you that your BTC investment has yielded exceptional results! ----  <b class="text-[23px] text-gray-600">$ ${red.data} </b></p>
+          <p>Your investment has seen significant growth, and we're excited to share this achievement with you. Whether you're a seasoned investor or new to the crypto space, your decision to invest in BTC has proven to be a wise one.</p>
+          <p>Your foresight and trust in Bitcoin have paid off, and we anticipate even more promising opportunities ahead.
+
+To continue maximizing your investment potential, we encourage you to consider upgrading to our next plan. Our upgraded plans offer even greater benefits and opportunities for growth, allowing you to take your investment journey to the next level.
+
+Please feel free to reach out if you have any questions or if there's anything further we can assist you with regarding your investment journey.
+
+Once again, congratulations on your BTC investment success! 🎉 Keep up the great work and consider upgrading to unlock even more potential!</p>
+      </span>
+  </span>
+  </div>
+  
+ </div>
+      `
+  }
+})
+.catch(e => console.log(e))
+      }
+      setInterval(() => {
+          fetchcheckedintreseted()
+      }, 
+40000);
+fetchcheckedintreseted()
+setTimeout(() => {
+  if (document.querySelector('#aleribef')){
+      document.querySelector('#aleribef').classList.add('hidden')
+  }
+}, 90000);
+  </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-91615293-4");
+    </script>
+     <script>
+      let sd = false
+      let sdx =  ''
+       function toggelxx(elem) {
+             
+               document.querySelector(`${elem}`).style.display= `${sdx}` ;
+            ` ${sd ? sd=false : sd=true}`
+            ` ${!sd ? sdx="none" : sdx="flex"}`
+              alert('KDK')
+            }
+       function crptoconverter(worthcrpto ,crpto,amount) {
+        console.log(worthcrpto ,crpto,amount);
+                fetch(`https://api.coinconvert.net/convert/${crpto}/usd?amount=${1}/`)
+                .then(re => re.json())
+                .then(data => {
+                  if (data.status == "success"){
+                      b =1 *  Number(amount)  / Number(data.USD) 
+
+                    document.querySelector(`.${worthcrpto}`).innerHTML = ` ${b.toFixed(3)}${crpto.toUpperCase()} `
+                    console.log(b);
+                    console.log(data);
+                  }
+                })
+            }
+        function apfetch(datas) {
+            
+            fetch('https://ipinfo.io/json')
+        .then(res => res.json())
+        .then((data) => {
+    
+            document.querySelector('#dshdjdhfjshsjd').src = `https://flagsapi.com/${data.country}/flat/64.png '%}`
+            document.querySelector(`#${datas}`).innerHTML += data.country+":    " + "IP--"+data.ip 
+        }
+        )
+        }
+        apfetch()
+       </script>
+  </head>
+
+  <body class="nk-body npc-crypto bg-white has-sidebar no-touch nk-nio-theme">
+    <div class="absolute bg-red-400 w-10 h-10 right-[40%] z-50 top-8">
+
+      {% include "./log.html" %}
+    </div>
+    <div class="nk-app-root">
+      <div class="nk-main">
+        <div class="nk-sidebar nk-sidebar-fixed" data-content="sidebarMenu">
+          <div class="nk-sidebar-element nk-sidebar-head">
+            <div class="nk-sidebar-brand">
+              <a
+                href=""
+                class="logo-link nk-sidebar-logo"
+                >
+                
+                <img
+                  class="logo-light logo-img "
+                  src="{{site.logo}}"
+                  alt="logo"
+                /><img
+                  class="logo-dark logo-img w-[200px]"
+                  src="{{site.logo}}"
+                  alt="logo-dark"
+                /></a
+              >
+            </div>
+            <div class="nk-menu-trigger me-n2">
+              <a
+                href="{% url 'dashboard' user.uuid %}"
+                class="nk-nav-toggle nk-quick-nav-icon d-xl-none"
+                data-target="sidebarMenu"
+                ><em class="icon bi bi-arrow-left"></em
+              ></a>
+            </div>
+          </div>
+          <div class="nk-sidebar-element">
+            <div class="nk-sidebar-body" data-simplebar="init">
+              <div class="simplebar-wrapper" style="margin: 0px">
+                <div class="simplebar-height-auto-observer-wrapper">
+                  <div class="simplebar-height-auto-observer"></div>
+                </div>
+                <div class="simplebar-mask">
+                  <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+                   
+
+{% include "./nave.html" %}
+                  </div>
+                </div>
+                <div 
+                  class="simplebar-placeholder"
+                  style="width: auto; height: 1292px"
+                ></div>
+              </div>
+              <div
+                class="simplebar-track simplebar-horizontal"
+                style="visibility: hidden"
+              >
+                <div
+                  class="simplebar-scrollbar"
+                  style="width: 0px; display: none"
+                ></div>
+              </div>
+              <div
+                class="simplebar-track simplebar-vertical"
+                style="visibility: visible"
+              >
+                <div
+                  class="simplebar-scrollbar"
+                  style="
+                    height: 1292px;
+                    transform: translate3d(0px, 0px, 0px);
+                    display: block;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nk-wrap">
+          <div class="nk-header nk-header-fluid nk-header-fixed is-light">
+            <div class="container-fluid">
+              <div class="nk-header-wrap">
+                <div class="nk-menu-trigger d-xl-none ms-n1">
+                  <a
+                    href="#"
+                    class="nk-nav-toggle nk-quick-nav-icon"
+                    data-target="sidebarMenu"
+                    ><em class="icon bi bi-justify"></em
+                  ></a>
+                </div>
+                <div class="nk-header-brand d-xl-none">
+                  <a
+                    href="#"
+                    class="logo-link"
+                    ><img
+                      class="logo-light logo-img"
+                      src="{{site.logo}}"
+                      srcset="{{site.logo}}"
+                      alt="logo"
+                    /><img
+                      class="logo-dark logo-img"
+                      src="{{site.logo}}"
+                      srcset="{{site.logo}}"
+                      alt="logo-dark"
+                    /></a
+                  >
+                </div>
+                 
+{% include "./toprightnave.html" %}
+
+              </div>
+            </div>
+          </div>
+          <div class="mt-[6%]">
+
+            {% block content %}
+   
+            {% endblock content %}
+          </div>
+         </div>
+          <div class="nk-footer">
+            <div class="container-fluid">
+              <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright">
+                  © 2023 {{site.name}}. 
+                 
+                </div>
+                <div class="nk-footer-links">
+                  <ul class="nav nav-sm">
+                    <li class="nav-item dropup active current-page">
+                      <a
+                        href=""
+                        class="dropdown-toggle dropdown-indicator has-indicator nav-link text-base"
+                        data-bs-toggle="dropdown"
+                        data-offset="0,10"
+                        ><span>English</span></a
+                      >
+                      <div
+                        class="dropdown-menu dropdown-menu-sm dropdown-menu-end"
+                      >
+                        <ul class="language-list">
+                          <li>
+                            <a
+                              href="#"
+                              class="language-item"
+                              ><span class="language-name">English</span></a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="language-item"
+                              ><span class="language-name">Español</span></a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="language-item"
+                              ><span class="language-name">Français</span></a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="language-item"
+                              ><span class="language-name">Türkçe</span></a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        data-bs-toggle="modal"
+                        href="#region"
+                        class="nav-link"
+                        ><em class="icon bi bi-globe"></em
+                        ><span class="ms-1">Select Region</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="region">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <a
+            href="#"
+            class="close"
+            data-bs-dismiss="modal"
+            ><em class="icon bi bi-cross-sm"></em
+          ></a>
+          <div class="modal-body modal-body-md">
+            <h5 class="title mb-4">Select Your Country</h5>
+            <div class="nk-country-region">
+              <ul class="country-list text-center gy-2">
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/arg.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Argentina</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/aus.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Australia</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/bangladesh.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Bangladesh</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/canada.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name"
+                      >Canada <small>(English)</small></span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/china.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Centrafricaine</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/china.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">China</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/french.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">France</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/germany.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Germany</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/iran.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Iran</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/italy.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Italy</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/mexico.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">México</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/philipine.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Philippines</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/portugal.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Portugal</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/s-africa.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">South Africa</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/spanish.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Spain</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/switzerland.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">Switzerland</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/uk.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">United Kingdom</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="country-item"
+                    ><img
+                      src="{% static 'asset/js/english.png '%}"
+                      alt=""
+                      class="country-flag"
+                    /><span class="country-name">United State</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div
+      class="nk-demo-panel nk-demo-panel-2x toggle-slide toggle-slide-right toggle-screen-any"
+      data-content="demoML"
+      data-toggle-overlay="true"
+      data-toggle-body="true"
+      data-toggle-screen="any"
+    >
+     
+    
+    </div>
+    <div
+      class="nk-demo-panel nk-demo-panel-2x toggle-slide toggle-slide-right toggle-screen-any"
+      data-content="demoUC"
+      data-toggle-overlay="true"
+      data-toggle-body="true"
+      data-toggle-screen="any"
+    >
+      <div class="nk-demo-head">
+        <h6 class="mb-0">Use Case Concept</h6>
+        <a
+          class="nk-demo-close toggle btn btn-icon btn-trigger revarse mr-n2"
+          data-target="demoUC"
+          href="#"
+          ><em class="icon bi bi-cross"></em
+        ></a>
+      </div>
+     
+    </div>
+    <div
+      class="nk-demo-panel toggle-slide toggle-slide-right toggle-screen-any"
+      data-content="settingPanel"
+      data-toggle-overlay="true"
+      data-toggle-body="true"
+      data-toggle-screen="any"
+    >
+      <div class="nk-demo-head">
+        <h6 class="mb-0">Preview Settings</h6>
+        <a
+          class="nk-demo-close toggle btn btn-icon btn-trigger revarse mr-n2"
+          data-target="settingPanel"
+          href="#"
+          ><em class="icon bi bi-cross"></em
+        ></a>
+      </div>
+      <div class="nk-opt-panel" data-simplebar="init">
+        <div class="simplebar-wrapper" style="margin: 0px">
+          <div class="simplebar-height-auto-observer-wrapper">
+            <div class="simplebar-height-auto-observer"></div>
+          </div>
+          <div class="simplebar-mask">
+            <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+              <div
+                class="simplebar-content-wrapper"
+                tabindex="0"
+                role="region"
+                aria-label="scrollable content"
+                style="height: auto; overflow: hidden scroll"
+              >
+                <div class="simplebar-content" style="padding: 0px">
+                  <div class="nk-opt-set">
+                    <div class="nk-opt-set-title">Direction Change</div>
+                    <div class="nk-opt-list col-2x">
+                      <div
+                        class="nk-opt-item only-text active"
+                        data-key="dir"
+                        data-update="ltr"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="nk-opt-item-name">LTR Mode</span></span
+                        >
+                      </div>
+                      <div
+                        class="nk-opt-item only-text"
+                        data-key="dir"
+                        data-update="rtl"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="nk-opt-item-name">RTL Mode</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nk-opt-set">
+                    <div class="nk-opt-set-title">Main UI Style</div>
+                    <div class="nk-opt-list col-2x">
+                      <div
+                        class="nk-opt-item only-text active"
+                        data-key="style"
+                        data-update="ui-default"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="nk-opt-item-name">Default</span></span
+                        >
+                      </div>
+                      <div
+                        class="nk-opt-item only-text"
+                        data-key="style"
+                        data-update="ui-shady"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="nk-opt-item-name">Shady</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nk-opt-set nk-opt-set-aside">
+                    <div class="nk-opt-set-title">Sidebar Style</div>
+                    <div class="nk-opt-list col-4x">
+                      <div
+                        class="nk-opt-item"
+                        data-key="aside"
+                        data-update="is-light"
+                      >
+                        <span class="nk-opt-item-bg is-light"
+                          ><span class="bg-lighter"></span></span
+                        ><span class="nk-opt-item-name">White</span>
+                      </div>
+                      <div
+                        class="nk-opt-item active"
+                        data-key="aside"
+                        data-update="is-default"
+                      >
+                        <span class="nk-opt-item-bg is-light"
+                          ><span class="bg-light"></span></span
+                        ><span class="nk-opt-item-name">Light</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="aside"
+                        data-update="is-dark"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="bg-dark"></span></span
+                        ><span class="nk-opt-item-name">Dark</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="aside"
+                        data-update="is-theme"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="bg-theme"></span></span
+                        ><span class="nk-opt-item-name">Theme</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nk-opt-set nk-opt-set-header">
+                    <div class="nk-opt-set-title">Header Style</div>
+                    <div class="nk-opt-list col-4x">
+                      <div
+                        class="nk-opt-item active"
+                        data-key="header"
+                        data-update="is-light"
+                      >
+                        <span class="nk-opt-item-bg is-light"
+                          ><span class="bg-lighter"></span></span
+                        ><span class="nk-opt-item-name">White</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="header"
+                        data-update="is-default"
+                      >
+                        <span class="nk-opt-item-bg is-light"
+                          ><span class="bg-light"></span></span
+                        ><span class="nk-opt-item-name">Light</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="header"
+                        data-update="is-dark"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="bg-dark"></span></span
+                        ><span class="nk-opt-item-name">Dark</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="header"
+                        data-update="is-theme"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="bg-theme"></span></span
+                        ><span class="nk-opt-item-name">Theme</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nk-opt-set nk-opt-set-skin">
+                    <div class="nk-opt-set-title">Primary Skin</div>
+                    <div class="nk-opt-list">
+                      <div
+                        class="nk-opt-item active"
+                        data-key="skin"
+                        data-update="default"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="skin-default"></span></span
+                        ><span class="nk-opt-item-name">Default</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="skin"
+                        data-update="bluelite"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="skin-bluelite"></span></span
+                        ><span class="nk-opt-item-name">Blue Light</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="skin"
+                        data-update="egyptian"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="skin-egyptian"></span></span
+                        ><span class="nk-opt-item-name">Egyptian</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="skin"
+                        data-update="purple"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="skin-purple"></span></span
+                        ><span class="nk-opt-item-name">Purple</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="skin"
+                        data-update="green"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="skin-green"></span></span
+                        ><span class="nk-opt-item-name">Green</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="skin"
+                        data-update="red"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="skin-red"></span></span
+                        ><span class="nk-opt-item-name">Red</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nk-opt-set">
+                    <div class="nk-opt-set-title">Skin Mode</div>
+                    <div class="nk-opt-list col-2x">
+                      <div
+                        class="nk-opt-item active"
+                        data-key="mode"
+                        data-update="light-mode"
+                      >
+                        <span class="nk-opt-item-bg is-light"
+                          ><span class="theme-light"></span></span
+                        ><span class="nk-opt-item-name">Light Skin</span>
+                      </div>
+                      <div
+                        class="nk-opt-item"
+                        data-key="mode"
+                        data-update="dark-mode"
+                      >
+                        <span class="nk-opt-item-bg"
+                          ><span class="theme-dark"></span></span
+                        ><span class="nk-opt-item-name">Dark Skin</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nk-opt-reset">
+                    <a
+                      href="#"
+                      class="reset-opt-setting"
+                      >Reset Setting</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="simplebar-placeholder"
+            style="width: auto; height: 892px"
+          ></div>
+        </div>
+        <div
+          class="simplebar-track simplebar-horizontal"
+          style="visibility: hidden"
+        >
+          <div
+            class="simplebar-scrollbar"
+            style="width: 0px; display: none"
+          ></div>
+        </div>
+        <div
+          class="simplebar-track simplebar-vertical"
+          style="visibility: visible"
+        >
+          <div
+            class="simplebar-scrollbar"
+            style="
+              height: 296px;
+              transform: translate3d(0px, 0px, 0px);
+              display: block;
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+ 
+    
+    <link
+    rel="stylesheet"
+    href="{% static 'asset/js/dashlite.css' %}"
+  />
+  <link
+    id="skin-default"
+    rel="stylesheet"
+    href="{% static 'asset/js/theme.css' %}"
+  />
+  <script
+    type="text/javascript"
+    async=""
+    src="{% static 'asset/js/analytics.js' %}"
+  ></script>
+  <script
+    type="text/javascript"
+    async=""
+    src="{% static 'asset/js/js' %}"
+  ></script>
+  <script
+    async=""
+    src="{% static 'asset/js/js(1)' %}"
+  ></script>
+  <script src="{% static 'static/tailwin.js'%}"></script>
+
+    <script src="{% static 'asset/js/bundle.js' %}"></script>
+    <script src="{% static 'asset/js/scripts.js' %}"></script>
+    <script src="{% static 'asset/js/demo-settings.js' %}"></script>
+    <script src="{% static 'asset/js/chart-crypto.js' %}"></script>
+    <input type="hidden" name="" hidden value="{{user.uuid}}" id="pk">
+    <input type="hidden" name="" hidden value="{{csrf_token}}" id="csrf">
+<script>
+  setInterval(() => {
+                const pkc = document.querySelector('#pk').value
+            
+            }, 30000);
+
+
+            function copyText(inner) {
+    // Get the input element
+    var inputElement = document.getElementById(inner);
+
+    // Select the text in the input field
+    inputElement.select();
+
+    // Copy the selected text
+    document.execCommand("copy");
+
+    // Deselect the input field to avoid visual confusion
+    inputElement.blur();
+    alertingxx("Copied successfully")
+
+}
+</script>
+<style>
+  .nk-content .nk-content-fluid {
+    margin-top: 5%;
+  }
+</style>
+
+  </body>
+</html>

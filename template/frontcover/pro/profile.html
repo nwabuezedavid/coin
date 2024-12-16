@@ -1,0 +1,1493 @@
+
+
+
+
+{% extends "./base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'profile.js' %}">
+<script>
+    function updata3() {
+    const firstname = document.querySelector('#fullname')
+    const databirth = document.querySelector('#birthday')
+   
+    const country = document.querySelector('#address-county')
+    const state = document.querySelector('#state')
+    const keyv = document.querySelector('#pk')
+    const address = document.querySelector('#addressxx')
+    const phone = document.querySelector('#phone')
+
+
+
+    const csrf  = document.querySelector('#csrf')
+
+    const username  = document.querySelector('#username')
+
+
+if ( username.value != "" & databirth.value != "" & address.value !="" & keyv.value!=null ) {
+   let ms = new FormData()
+  ms.append('firstname', firstname.value)
+  ms.append('databirth', databirth.value)
+ 
+  ms.append('username', username.value)
+  ms.append('address', address.value)
+  ms.append('country', country.value)
+  ms.append('state', state.value)
+  ms.append('phone', phone.value)
+ 
+  const csrf  = document.querySelector('#csrf')
+let hi = location.host
+fetch(`http://${hi}/api/profile/${keyv.value}/`, {
+    method:'POST',
+    headers:{'X-CSRFToken':csrf.value},body: ms   })
+
+.then(res=> res.json()) 
+.then((e)=> {
+    if (e.error){
+      alertingxx(e.error)
+
+       
+    }else if (e.data){
+        location.reload()
+        
+    }
+;})
+.catch(err => {
+  alertingxx(e.error)
+
+}
+)
+
+}
+
+
+
+
+
+}
+</script>
+
+
+<div class="nk-content nk-content-fluid">
+    <div class="container-xl wide-lg">
+      <div class="nk-content-body">
+        <div class="nk-block-head">
+          <div class="nk-block-head-content">
+            <div class="nk-block-head-sub">
+              <span>Account Setting</span>
+            </div>
+            <h2 class="nk-block-title fw-normal">My Profile</h2>
+            <div class="nk-block-des">
+              <p>
+                You have full control to manage your own account
+                setting.
+                <span class="text-primary"><em class="icon bi bi-info" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Tooltip on right" data-bs-original-title="Tooltip on right"></em></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="nk-block">
+          <div class="alert alert-warning">
+            <div class="alert-cta flex-wrap flex-md-nowrap">
+              <div class="alert-text">
+                <p>
+                  Upgrade your Plan to unlock full feature and
+                  increase your earning.
+                </p>
+              </div>
+              <ul class="alert-actions gx-3 mt-3 mb-1 my-md-0">
+                <li class="order-md-last">
+                  <a href="{% url 'onplan' user.uuid %}" class="btn btn-sm btn-warning">Upgrade</a>
+                </li>
+                <li>
+                  <a href="#" class="link link-primary">Learn More</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nk-block-head">
+            <div class="nk-block-head-content">
+              <h5 class="nk-block-title">Personal Information</h5>
+              <div class="nk-block-des">
+                <p>
+                  Basic info, like your name and address, that you use
+                  on Nio Platform.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="nk-data data-list">
+            <div class="data-head">
+              <h6 class="overline-title">Basics</h6>
+            </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
+              <div class="data-col">
+                <span class="data-label">Full Name</span><span class="data-value">{{request.user.first_name}}</span>
+              </div>
+              <div class="data-col data-col-end">
+                <span class="data-more"><em class="icon bi bi-forward-ios"></em></span>
+              </div>
+            </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
+              <div class="data-col">
+                <span class="data-label">Display Name</span><span class="data-value">{{request.user.username}}</span>
+              </div>
+              <div class="data-col data-col-end">
+                <span class="data-more"><em class="icon bi bi-forward-ios"></em></span>
+              </div>
+            </div>
+            <div class="data-item">
+              <div class="data-col">
+                <span class="data-label">Email</span><span class="data-value">{{request.user.email}}</span>
+              </div>
+              <div class="data-col data-col-end">
+                <span class="data-more disable"><em class="icon bi bi-lock-alt"></em></span>
+              </div>
+            </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
+              <div class="data-col">
+                <span class="data-label">Phone Number</span><span class="data-value text-soft">{{user.Phone}}</span>
+              </div>
+              <div class="data-col data-col-end">
+                <span class="data-more"><em class="icon bi bi-forward-ios"></em></span>
+              </div>
+            </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit">
+              <div class="data-col">
+                <span class="data-label">Date of Birth</span><span class="data-value">{{user.databirth}}</span>
+              </div>
+              <div class="data-col data-col-end">
+                <span class="data-more"><em class="icon bi bi-forward-ios"></em></span>
+              </div>
+            </div>
+            <div class="data-item" data-bs-toggle="modal" data-bs-target="#profile-edit" data-tab-target="#address">
+              <div class="data-col">
+                <span class="data-label">Address</span><span class="data-value">{{user.address}}<br>Kentucky, Canada</span>
+              </div>
+              <div class="data-col data-col-end">
+                <span class="data-more"><em class="icon bi bi-forward-ios"></em></span>
+              </div>
+            </div>
+          </div>
+          <div class="nk-data data-list">
+            <div class="data-head">
+              <h6 class="overline-title">Preferences</h6>
+            </div>
+            <div class="data-item">
+              <div class="data-col">
+                <span class="data-label">Language</span><span class="data-value">English (United State)</span>
+              </div>
+              <div class="data-col data-col-end">
+                <a data-bs-toggle="modal" href="#" class="link link-primary">__</a>
+              </div>
+            </div>
+            <div class="data-item">
+              <div class="data-col">
+                <span class="data-label">Date Format</span><span class="data-value">M d, YYYY</span>
+              </div>
+              <div class="data-col data-col-end">
+                <a data-bs-toggle="modal" href="profile-edit" class="link link-primary">Change</a>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="region">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <a
+          href=""
+          class="close"
+          data-bs-dismiss="modal"
+          ><em class="icon ni ni-cross-sm"></em
+        ></a>
+        <div class="modal-body modal-body-md">
+          <h5 class="title mb-4">Select Your Country</h5>
+          <div class="nk-country-region">
+            <ul class="country-list text-center gy-2">
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'arg.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Argentina</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'aus.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Australia</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'bangladesh.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Bangladesh</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'canada.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name"
+                    >Canada <small>(English)</small></span
+                  ></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'china.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Centrafricaine</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'china.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">China</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'french.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">France</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'germany.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Germany</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'iran.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Iran</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'italy.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Italy</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'mexico.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">México</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'philipine.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Philippines</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'portugal.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Portugal</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 's-africa.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">South Africa</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'spanish.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Spain</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'switzerland.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">Switzerland</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'uk.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">United Kingdom</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="country-item"
+                  ><img
+                    src="{% static 'english.png' %}"
+                    alt=""
+                    class="country-flag"
+                  /><span class="country-name">United State</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" role="dialog" id="profile-edit">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <a
+          href="#"
+          class="close"
+          data-bs-dismiss="modal"
+          ><em class="icon ni ni-cross-sm"></em
+        ></a>
+        <div class="modal-body modal-body-lg">
+          <h5 class="title">Update Profile</h5>
+          <ul class="nk-nav nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link active"
+                data-bs-toggle="tab"
+                href="#personal"
+                aria-selected="true"
+                role="tab"
+                >Personal</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link"
+                data-bs-toggle="tab"
+                href="#address"
+                aria-selected="false"
+                tabindex="-1"
+                role="tab"
+                >Address</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="personal" role="tabpanel">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="full-name">Full Name</label
+                    ><input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="fullname"
+                      value="{{request.user.first_name}}"
+                      placeholder="Enter Full name"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="display-name"
+                      >Display Name</label
+                    ><input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="username"
+                      value="{{request.user.username}}"
+                      placeholder="Enter display name"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="phone-no"
+                      >Phone Number</label
+                    ><input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="phone"
+                      value="{{user.Phone}}"
+                      placeholder="Phone Number"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="birth-day"
+                      >Date of Birth</label
+                    ><input
+                      type="text"
+                      class="form-control form-control-lg date-picker"
+                      id="birthday"
+                      value="{{user.databirth}}"
+                      placeholder="Enter your BirthDay"
+                    />
+                  </div>
+                </div>
+              
+                <div class="col-12">
+                  <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                    <li>
+                      <button
+                        onclick="updata3()"
+                        class="btn btn-lg btn-primary"
+                        >Update Profile</button
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        data-bs-dismiss="modal"
+                        class="link link-light"
+                        >Cancel</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="address" role="tabpanel">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="addressxx"
+                      >Address Line </label
+                    ><input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="addressxx"
+                      value="   "
+                    />
+                  </div>
+                </div>
+               
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="address-st">State</label
+                    ><input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="state"
+                      value="{{user.state}}"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="address-county"
+                      >Country</label
+                    ><select
+                      class="form-select js-select2 select2-hidden-accessible"
+                      id="address-county"
+                      data-ui="lg"
+                      data-select2-id="address-county"
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      <option >Canada</option>
+                      <option>United State</option>
+                      <option>United Kindom</option>
+                      <option>Australia</option>
+                      <option>India</option>
+                      <option>Bangladesh</option></select
+                    ><span
+                      class="select2 select2-container select2-container--default select2-lg"
+                      dir="ltr"
+                      data-select2-id="1"
+                      style="width: auto"
+                      >
+                      <b role="presentation"></b></span></span></span
+                      ><span
+                        class="dropdown-wrapper"
+                        aria-hidden="true"
+                      ></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                    <li>
+                      <button
+                       onclick="updata3()"
+
+                        class="btn btn-lg btn-primary"
+                        >Update Address</button
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        data-bs-dismiss="modal"
+                        class="link link-light"
+                        >Cancel</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="nk-demo-panel nk-demo-panel-2x toggle-slide toggle-slide-right toggle-screen-any"
+    data-content="demoML"
+    data-toggle-overlay="true"
+    data-toggle-body="true"
+    data-toggle-screen="any"
+  >
+    <div class="nk-demo-head">
+      <h6 class="mb-0">Switch Demo Layout</h6>
+      <a
+        class="nk-demo-close toggle btn btn-icon btn-trigger revarse mr-n2"
+        data-target="demoML"
+        href="#"
+        ><em class="icon ni ni-cross"></em
+      ></a>
+    </div>
+    <div class="nk-demo-list" data-simplebar="init">
+      <div class="simplebar-wrapper" style="margin: 0px">
+        <div class="simplebar-height-auto-observer-wrapper">
+          <div class="simplebar-height-auto-observer"></div>
+        </div>
+        <div class="simplebar-mask">
+          <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+            <div
+              class="simplebar-content-wrapper"
+              tabindex="0"
+              role="region"
+              aria-label="scrollable content"
+              style="height: auto; overflow: hidden scroll"
+            >
+              <div class="simplebar-content" style="padding: 0px">
+                <div class="nk-demo-item">
+                  <a href="demo1/index.html"
+                    ><div class="nk-demo-image bg-blue">
+                      <img
+                        class="bg-purple"
+                        src="{% static 'layout-1d.jpg"
+                        srcset="
+                          images/landing/layout-1d2x.jpg 2x
+                        "
+                        alt="Demo Layout 1"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 1</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo2/index.html"
+                    ><div class="nk-demo-image bg-purple">
+                      <img
+                        src="{% static 'layout-2d.jpg"
+                        srcset="
+                          images/landing/layout-2d2x.jpg 2x
+                        "
+                        alt="Demo Layout 2"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 2</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo3/index.html"
+                    ><div class="nk-demo-image bg-success">
+                      <img
+                        src="{% static 'layout-3d.jpg"
+                        srcset="
+                          images/landing/layout-3d2x.jpg 2x
+                        "
+                        alt="Demo Layout 3"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 3</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo4/index.html"
+                    ><div class="nk-demo-image bg-indigo">
+                      <img
+                        src="{% static 'layout-4d.jpg"
+                        srcset="
+                          images/landing/layout-4d2x.jpg 2x
+                        "
+                        alt="Demo Layout 4"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 4</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo5/index.html"
+                    ><div class="nk-demo-image bg-orange">
+                      <img
+                        src="{% static 'layout-5d.jpg"
+                        srcset="
+                          images/landing/layout-5d2x.jpg 2x
+                        "
+                        alt="Demo Layout 5"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 5</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo6/index.html"
+                    ><div class="nk-demo-image bg-purple">
+                      <img
+                        src="{% static 'layout-6d.jpg"
+                        srcset="
+                          images/landing/layout-6d2x.jpg 2x
+                        "
+                        alt="Demo Layout 6"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 6</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo7/index.html"
+                    ><div class="nk-demo-image bg-teal">
+                      <img
+                        src="{% static 'layout-7d.jpg"
+                        srcset="
+                          images/landing/layout-7d2x.jpg 2x
+                        "
+                        alt="Demo Layout 7"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 7</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo8/index.html"
+                    ><div class="nk-demo-image bg-azure">
+                      <img
+                        src="{% static 'layout-8d.jpg"
+                        srcset="
+                          images/landing/layout-8d2x.jpg 2x
+                        "
+                        alt="Demo Layout 8"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 8</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo9/index.html"
+                    ><div class="nk-demo-image bg-pink">
+                      <img
+                        src="{% static 'layout-9d.jpg"
+                        srcset="
+                          images/landing/layout-9d2x.jpg 2x
+                        "
+                        alt="Demo Layout 9"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Demo Layout 9</strong></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="landing/index.html"
+                    ><div class="nk-demo-image bg-red">
+                      <img
+                        src="{% static 'main-landing.jpg"
+                        srcset="
+                          images/landing/main-landing2x.jpg 2x
+                        "
+                        alt="Landing Page"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><strong>Landing Page</strong>
+                      <span class="badge badge-danger ml-1">Free</span></span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="simplebar-placeholder"
+          style="width: auto; height: 1327px"
+        ></div>
+      </div>
+      <div
+        class="simplebar-track simplebar-horizontal"
+        style="visibility: hidden"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="width: 0px; display: none"
+        ></div>
+      </div>
+      <div
+        class="simplebar-track simplebar-vertical"
+        style="visibility: visible"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="
+            height: 218px;
+            transform: translate3d(0px, 0px, 0px);
+            display: block;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="nk-demo-panel nk-demo-panel-2x toggle-slide toggle-slide-right toggle-screen-any"
+    data-content="demoUC"
+    data-toggle-overlay="true"
+    data-toggle-body="true"
+    data-toggle-screen="any"
+  >
+    <div class="nk-demo-head">
+      <h6 class="mb-0">Use Case Concept</h6>
+      <a
+        class="nk-demo-close toggle btn btn-icon btn-trigger revarse mr-n2"
+        data-target="demoUC"
+        href="#"
+        ><em class="icon ni ni-cross"></em
+      ></a>
+    </div>
+    <div class="nk-demo-list" data-simplebar="init">
+      <div class="simplebar-wrapper" style="margin: 0px">
+        <div class="simplebar-height-auto-observer-wrapper">
+          <div class="simplebar-height-auto-observer"></div>
+        </div>
+        <div class="simplebar-mask">
+          <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+            <div
+              class="simplebar-content-wrapper"
+              tabindex="0"
+              role="region"
+              aria-label="scrollable content"
+              style="height: auto; overflow: hidden scroll"
+            >
+              <div class="simplebar-content" style="padding: 0px">
+                <div class="nk-demo-item">
+                  <a href="demo9/copywriter/index.html"
+                    ><div class="nk-demo-image bg-indigo">
+                      <img
+                        src="{% static 'demo-ai-copywriter.jpg"
+                        srcset="
+                          images/landing/demo-ai-copywriter2x.jpg 2x
+                        "
+                        alt="ai-copywriter"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo9</em><br /><strong
+                        >Ai Copywriter Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo7/pharmacy/index.html"
+                    ><div class="nk-demo-image bg-warning">
+                      <img
+                        src="{% static 'demo-pharmacy.jpg"
+                        srcset="
+                          images/landing/demo-pharmacy2x.jpg 2x
+                        "
+                        alt="pharmacy"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo7</em><br /><strong
+                        >Pharmacy Management Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo5/loan/index.html"
+                    ><div class="nk-demo-image bg-purple">
+                      <img
+                        src="{% static 'demo-loan.jpg"
+                        srcset="
+                          images/landing/demo-loan2x.jpg 2x
+                        "
+                        alt="loan"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo5</em><br /><strong
+                        >Loan Management Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo2/ecommerce/index.html"
+                    ><div class="nk-demo-image bg-dark">
+                      <img
+                        src="{% static 'demo-ecommerce.jpg"
+                        srcset="
+                          images/landing/demo-ecommerce2x.jpg 2x
+                        "
+                        alt="Ecommerce"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo2</em><br /><strong
+                        >E-Commerce Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo2/lms/index.html"
+                    ><div class="nk-demo-image bg-danger">
+                      <img
+                        src="{% static 'demo-lms.jpg"
+                        srcset="
+                          images/landing/demo-lms2x.jpg 2x
+                        "
+                        alt="LMS"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo2</em><br /><strong
+                        >LMS / Learning Management System</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo1/crm/index.html"
+                    ><div class="nk-demo-image bg-info">
+                      <img
+                        src="{% static 'demo-crm.jpg"
+                        srcset="
+                          images/landing/demo-crm2x.jpg 2x
+                        "
+                        alt="CRM / Customer Relationship"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo1</em><br /><strong
+                        >CRM / Customer Relationship Management</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo7/hospital/index.html"
+                    ><div class="nk-demo-image bg-indigo">
+                      <img
+                        src="{% static 'demo-hospital.jpg"
+                        srcset="
+                          images/landing/demo-hospital2x.jpg 2x
+                        "
+                        alt="Hospital Managemen"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo7</em><br /><strong
+                        >Hospital Management</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo1/hotel/index.html"
+                    ><div class="nk-demo-image bg-pink">
+                      <img
+                        src="{% static 'demo-hotel.jpg"
+                        srcset="
+                          images/landing/demo-hotel2x.jpg 2x
+                        "
+                        alt="Hotel Managemen"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo1</em><br /><strong
+                        >Hotel Management</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo3/cms/index.html"
+                    ><div class="nk-demo-image bg-dark">
+                      <img
+                        src="{% static 'demo-cms.jpg"
+                        srcset="
+                          images/landing/demo-cms2x.jpg 2x
+                        "
+                        alt="cms"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo3</em><br /><strong
+                        >CMS Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo5/crypto/index.html"
+                    ><div class="nk-demo-image bg-warning">
+                      <img
+                        src="{% static 'demo-buysell.jpg"
+                        srcset="
+                          images/landing/demo-buysell2x.jpg 2x
+                        "
+                        alt="Crypto BuySell / Wallet"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo5</em><br /><strong
+                        >Crypto BuySell Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo6/invest/index.html"
+                    ><div class="nk-demo-image bg-indigo">
+                      <img
+                        src="{% static 'demo-invest.jpg"
+                        srcset="
+                          images/landing/demo-invest2x.jpg 2x
+                        "
+                        alt="HYIP / Investment"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo6</em><br /><strong
+                        >HYIP / Investment Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo3/apps/file-manager.html"
+                    ><div class="nk-demo-image bg-purple">
+                      <img
+                        src="{% static 'demo-file-manager.jpg"
+                        srcset="
+                          images/landing/demo-file-manager2x.jpg 2x
+                        "
+                        alt="File Manager"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo3</em><br /><strong
+                        >Apps - File Manager</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href=""
+                    ><div class="nk-demo-image bg-primary">
+                      <img
+                        src="{% static 'demo-subscription.jpg"
+                        srcset="
+                          images/landing/demo-subscription2x.jpg 2x
+                        "
+                        alt="SAAS / Subscription"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo4</em><br /><strong
+                        >SAAS / Subscription Panel</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="covid/index.html"
+                    ><div class="nk-demo-image bg-danger">
+                      <img
+                        src="{% static 'demo-covid19.jpg"
+                        srcset="
+                          images/landing/demo-covid192x.jpg 2x
+                        "
+                        alt="Covid Situation"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Covid</em><br /><strong
+                        >Coronavirus Situation</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo3/apps/messages.html"
+                    ><div class="nk-demo-image bg-success">
+                      <img
+                        src="{% static 'demo-messages.jpg"
+                        srcset="
+                          images/landing/demo-messages2x.jpg 2x
+                        "
+                        alt="Messages"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo3</em><br /><strong
+                        >Apps - Messages</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo3/apps/mailbox.html"
+                    ><div class="nk-demo-image bg-purple">
+                      <img
+                        src="{% static 'demo-inbox.jpg"
+                        srcset="
+                          images/landing/demo-inbox2x.jpg 2x
+                        "
+                        alt="Inbox"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo3</em><br /><strong
+                        >Apps - Mailbox</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+                <div class="nk-demo-item">
+                  <a href="demo3/apps/chats.html"
+                    ><div class="nk-demo-image bg-purple">
+                      <img
+                        src="{% static 'demo-chats.jpg"
+                        srcset="
+                          images/landing/demo-chats2x.jpg 2x
+                        "
+                        alt="Chats / Messenger"
+                      />
+                    </div>
+                    <span class="nk-demo-title"
+                      ><em class="text-primary">Demo3</em><br /><strong
+                        >Apps - Chats</strong
+                      ></span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="simplebar-placeholder"
+          style="width: auto; height: 2563px"
+        ></div>
+      </div>
+      <div
+        class="simplebar-track simplebar-horizontal"
+        style="visibility: hidden"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="width: 0px; display: none"
+        ></div>
+      </div>
+      <div
+        class="simplebar-track simplebar-vertical"
+        style="visibility: visible"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="
+            height: 112px;
+            transform: translate3d(0px, 0px, 0px);
+            display: block;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="nk-demo-panel toggle-slide toggle-slide-right toggle-screen-any"
+    data-content="settingPanel"
+    data-toggle-overlay="true"
+    data-toggle-body="true"
+    data-toggle-screen="any"
+  >
+    <div class="nk-demo-head">
+      <h6 class="mb-0">Preview Settings</h6>
+      <a
+        class="nk-demo-close toggle btn btn-icon btn-trigger revarse mr-n2"
+        data-target="settingPanel"
+        href="#"
+        ><em class="icon ni ni-cross"></em
+      ></a>
+    </div>
+    <div class="nk-opt-panel" data-simplebar="init">
+      <div class="simplebar-wrapper" style="margin: 0px">
+        <div class="simplebar-height-auto-observer-wrapper">
+          <div class="simplebar-height-auto-observer"></div>
+        </div>
+        <div class="simplebar-mask">
+          <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+            <div
+              class="simplebar-content-wrapper"
+              tabindex="0"
+              role="region"
+              aria-label="scrollable content"
+              style="height: auto; overflow: hidden scroll"
+            >
+              <div class="simplebar-content" style="padding: 0px">
+                <div class="nk-opt-set">
+                  <div class="nk-opt-set-title">Direction Change</div>
+                  <div class="nk-opt-list col-2x">
+                    <div
+                      class="nk-opt-item only-text active"
+                      data-key="dir"
+                      data-update="ltr"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="nk-opt-item-name">LTR Mode</span></span
+                      >
+                    </div>
+                    <div
+                      class="nk-opt-item only-text"
+                      data-key="dir"
+                      data-update="rtl"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="nk-opt-item-name">RTL Mode</span></span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="nk-opt-set">
+                  <div class="nk-opt-set-title">Main UI Style</div>
+                  <div class="nk-opt-list col-2x">
+                    <div
+                      class="nk-opt-item only-text active"
+                      data-key="style"
+                      data-update="ui-default"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="nk-opt-item-name">Default</span></span
+                      >
+                    </div>
+                    <div
+                      class="nk-opt-item only-text"
+                      data-key="style"
+                      data-update="ui-shady"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="nk-opt-item-name">Shady</span></span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="nk-opt-set nk-opt-set-aside">
+                  <div class="nk-opt-set-title">Sidebar Style</div>
+                  <div class="nk-opt-list col-4x">
+                    <div
+                      class="nk-opt-item"
+                      data-key="aside"
+                      data-update="is-light"
+                    >
+                      <span class="nk-opt-item-bg is-light"
+                        ><span class="bg-lighter"></span></span
+                      ><span class="nk-opt-item-name">White</span>
+                    </div>
+                    <div
+                      class="nk-opt-item active"
+                      data-key="aside"
+                      data-update="is-default"
+                    >
+                      <span class="nk-opt-item-bg is-light"
+                        ><span class="bg-light"></span></span
+                      ><span class="nk-opt-item-name">Light</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="aside"
+                      data-update="is-dark"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="bg-dark"></span></span
+                      ><span class="nk-opt-item-name">Dark</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="aside"
+                      data-update="is-theme"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="bg-theme"></span></span
+                      ><span class="nk-opt-item-name">Theme</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="nk-opt-set nk-opt-set-header">
+                  <div class="nk-opt-set-title">Header Style</div>
+                  <div class="nk-opt-list col-4x">
+                    <div
+                      class="nk-opt-item active"
+                      data-key="header"
+                      data-update="is-light"
+                    >
+                      <span class="nk-opt-item-bg is-light"
+                        ><span class="bg-lighter"></span></span
+                      ><span class="nk-opt-item-name">White</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="header"
+                      data-update="is-default"
+                    >
+                      <span class="nk-opt-item-bg is-light"
+                        ><span class="bg-light"></span></span
+                      ><span class="nk-opt-item-name">Light</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="header"
+                      data-update="is-dark"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="bg-dark"></span></span
+                      ><span class="nk-opt-item-name">Dark</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="header"
+                      data-update="is-theme"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="bg-theme"></span></span
+                      ><span class="nk-opt-item-name">Theme</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="nk-opt-set nk-opt-set-skin">
+                  <div class="nk-opt-set-title">Primary Skin</div>
+                  <div class="nk-opt-list">
+                    <div
+                      class="nk-opt-item active"
+                      data-key="skin"
+                      data-update="default"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="skin-default"></span></span
+                      ><span class="nk-opt-item-name">Default</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="skin"
+                      data-update="bluelite"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="skin-bluelite"></span></span
+                      ><span class="nk-opt-item-name">Blue Light</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="skin"
+                      data-update="egyptian"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="skin-egyptian"></span></span
+                      ><span class="nk-opt-item-name">Egyptian</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="skin"
+                      data-update="purple"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="skin-purple"></span></span
+                      ><span class="nk-opt-item-name">Purple</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="skin"
+                      data-update="green"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="skin-green"></span></span
+                      ><span class="nk-opt-item-name">Green</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="skin"
+                      data-update="red"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="skin-red"></span></span
+                      ><span class="nk-opt-item-name">Red</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="nk-opt-set">
+                  <div class="nk-opt-set-title">Skin Mode</div>
+                  <div class="nk-opt-list col-2x">
+                    <div
+                      class="nk-opt-item active"
+                      data-key="mode"
+                      data-update="light-mode"
+                    >
+                      <span class="nk-opt-item-bg is-light"
+                        ><span class="theme-light"></span></span
+                      ><span class="nk-opt-item-name">Light Skin</span>
+                    </div>
+                    <div
+                      class="nk-opt-item"
+                      data-key="mode"
+                      data-update="dark-mode"
+                    >
+                      <span class="nk-opt-item-bg"
+                        ><span class="theme-dark"></span></span
+                      ><span class="nk-opt-item-name">Dark Skin</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="nk-opt-reset">
+                  <a
+                    href="#"
+                    class="reset-opt-setting"
+                    >Reset Setting</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="simplebar-placeholder"
+          style="width: auto; height: 892px"
+        ></div>
+      </div>
+      <div
+        class="simplebar-track simplebar-horizontal"
+        style="visibility: hidden"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="width: 0px; display: none"
+        ></div>
+      </div>
+      <div
+        class="simplebar-track simplebar-vertical"
+        style="visibility: visible"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="
+            height: 296px;
+            transform: translate3d(0px, 0px, 0px);
+            display: block;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}
