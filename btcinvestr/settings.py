@@ -22,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in producti on secret!
 SECRET_KEY = 'django-insecure-xhw1zab^=fzu92@45h4)hmc#fut52)uk)fx+7u2@g9$ssm&2fd'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-EMAIL_HOST = 'nexusinvestmenttrade.com'
  
-EMAIL_HOST_USER = "admin@nexusinvestmenttrade.com" 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_PASSWORD = "nwabueze666$" 
-EMAIL_PORT = 465 
-EMAIL_USE_SSL = True 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  # Use this for TLS
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'secureinvestworldwide334@gmail.com'
+EMAIL_HOST_PASSWORD = "dfljitijxwlvmrkc"
 
 
 # Application definition
