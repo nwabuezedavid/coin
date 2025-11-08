@@ -67,7 +67,7 @@ def seed_investment_plans(request):
  
 
 def home(request):
-    seed_investment_plans(request)
+ 
     conx={
         'site': siteedit.objects.get(idx=1),
         'plan': allplan.objects.all(),
