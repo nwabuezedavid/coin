@@ -29,7 +29,7 @@ EMAIL_PORT = 587  # Use this for TLS
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'secureinvestworldwide334@gmail.com'
-EMAIL_HOST_PASSWORD = "dfljitijxwlvmrkc"
+EMAIL_HOST_PASSWORD = "dfljitijxwlv mrkc"
 
 
 # Application definition
@@ -96,32 +96,18 @@ WSGI_APPLICATION = 'btcinvestr.wsgi.application'
 from urllib.parse import urlparse
 tmpPostgres = urlparse('postgresql://neondb_owner:npg_sMaQ7x3gfNVX@ep-mute-dawn-a8hwii60-pooler.eastus2.azure.neon.tech/neondb?sslmode=require')
 
-from urllib.parse import urlparse
-tmpPostgres = urlparse('postgresql://neondb_owner:npg_sMaQ7x3gfNVX@ep-mute-dawn-a8hwii60-pooler.eastus2.azure.neon.tech/neondb?sslmode=require')
+ 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
+    }
+}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
-<<<<<<< HEAD
-    }
-}
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
-=======
->>>>>>> 3156e0c40dbce4039ab4b4d630b64f053df79810
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

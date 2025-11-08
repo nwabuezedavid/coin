@@ -5,7 +5,69 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 # Create your views here.
+
+
+
+from django.shortcuts import render
+ 
+import uuid
+
+def seed_investment_plans(request):
+    plans = [
+        {
+            "name": "Starter Plan",
+            "minplan": "50",
+            "maxplan": "499",
+            "interest": 4.0,
+            "daygiven": 3,
+        },
+        {
+            "name": "Silver Plan",
+            "minplan": "500",
+            "maxplan": "1,999",
+            "interest": 5.5,
+            "daygiven": 5,
+        },
+        {
+            "name": "Gold Plan",
+            "minplan": "2,000",
+            "maxplan": "4,999",
+            "interest": 6.5,
+            "daygiven": 7,
+        },
+        {
+            "name": "Diamond Plan",
+            "minplan": "5,000",
+            "maxplan": "9,999",
+            "interest": 8.0,
+            "daygiven": 10,
+        },
+        {
+            "name": "Elite Plan",
+            "minplan": "10,000",
+            "maxplan": "50,000",
+            "interest": 10.0,
+            "daygiven": 14,
+        },
+    ]
+
+    # Loop through and create plans if they don’t exist
+    for plan in plans:
+        allplan.objects.get_or_create(
+            name=plan["name"],
+            defaults={
+                "minplan": plan["minplan"],
+                "maxplan": plan["maxplan"],
+                "uuid": str(uuid.uuid4()),
+                "approved": True,
+                "interest": plan["interest"],
+                "daygiven": plan["daygiven"],
+            },
+        )
+ 
+
 def home(request):
+    seed_investment_plans(request)
     conx={
         'site': siteedit.objects.get(idx=1),
         'plan': allplan.objects.all(),
