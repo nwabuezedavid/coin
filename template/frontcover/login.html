@@ -34,7 +34,132 @@
         
 <input type="hidden" class="hidden" class="hidden" value="{{csrf_token}}" name="" id="csrf">
     
-        
+        <script>
+    let hi = location.host;
+let pro = location.protocol;
+
+function Login(oncline, type) {
+    const email = document.querySelector('#email');
+    const username = document.querySelector('#username');
+    const password = document.querySelector('#password');
+    const csrf = document.querySelector('#csrf');
+    const textbtn = document.querySelector('#textbtn');
+    const errormessage = document.querySelector('#errormessage');
+    const pinbtn = document.querySelector('#pinbtn');
+    const btn = document.querySelector(oncline); // 👈 get button element
+    let code = null;
+
+    if (document.querySelector('#code')) {
+        code = document.querySelector('#code');
+    }
+
+    if (type == "login") {
+        btn.addEventListener('click', () => {
+            textbtn.classList.toggle('hidden');
+            pinbtn.classList.toggle('hidden');
+            btn.disabled = true; // 👈 disable button
+
+            if (email.value !== "" && username.value !== "" && password.value !== "") {
+                fetch(`${pro}//${hi}/api/`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrf.value
+                    },
+                    body: JSON.stringify({
+                        username: username.value,
+                        email: email.value,
+                        password: password.value,
+                    })
+                })
+                    .then(res => res.json())
+                    .then((e) => {
+                        if (e.error) {
+                            errormessage.innerHTML = e.error;
+                            if (document.querySelector('#errormessagecon')) {
+                                document.querySelector('#errormessagecon').classList.remove('hidden');
+                            }
+                        } else if (e.super) {
+                            location.href = `/Admin-Control/${e.super}/`;
+                        } else if (e.user) {
+                            location.href = `/dashboard/${e.user}/`;
+                        }
+                    })
+                    .catch(err => alert(err, 'error'))
+                    .finally(() => {
+                        textbtn.classList.toggle('hidden');
+                        pinbtn.classList.toggle('hidden');
+                        btn.disabled = false; // 👈 re-enable button
+                    });
+            } else {
+                errormessage.innerHTML = "Input Can't be Empty";
+                if (document.querySelector('#errormessagecon')) {
+                    document.querySelector('#errormessagecon').classList.remove('hidden');
+                }
+                textbtn.classList.toggle('hidden');
+                pinbtn.classList.toggle('hidden');
+                btn.disabled = false; // 👈 re-enable button
+            }
+        });
+    }
+
+    if (type == "register") {
+        btn.addEventListener('click', () => {
+            textbtn.classList.toggle('hidden');
+            pinbtn.classList.toggle('hidden');
+            btn.disabled = true; // 👈 disable button
+
+            if (email.value !== "" && username.value !== "" && password.value !== "") {
+                fetch(`${pro}//${hi}/api/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrf.value
+                    },
+                    body: JSON.stringify({
+                        username: username.value,
+                        email: email.value,
+                        password: password.value,
+                        code: code ? code.value : null,
+                    })
+                })
+                    .then(res => res.json())
+                    .then((e) => {
+                        if (e.error) {
+                            errormessage.innerHTML = e.error;
+                            if (document.querySelector('#errormessagecon')) {
+                                document.querySelector('#errormessagecon').classList.remove('hidden');
+                            }
+                        } else if (e.user) {
+                            location.href = `/dashboard/${e.user}/`;
+                        }
+                    })
+                    .catch(err => alert(err, 'error'))
+                    .finally(() => {
+                        textbtn.classList.toggle('hidden');
+                        pinbtn.classList.toggle('hidden');
+                        btn.disabled = false; // 👈 re-enable button
+                    });
+            } else {
+                errormessage.innerHTML = "Input Can't be Empty";
+                if (document.querySelector('#errormessagecon')) {
+                    document.querySelector('#errormessagecon').classList.remove('hidden');
+                }
+                textbtn.classList.toggle('hidden');
+                pinbtn.classList.toggle('hidden');
+                btn.disabled = false; // 👈 re-enable button
+            }
+        });
+    }
+}
+
+if (document.querySelector('#disclosed')) {
+    document.querySelector('#disclosed').addEventListener('click', () => {
+        document.querySelector('#errormessagecon').classList.add('hidden');
+    });
+}
+
+</script>
 
 
 
